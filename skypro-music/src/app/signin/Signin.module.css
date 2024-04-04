@@ -1,56 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-a,
-a:visited {
-  text-decoration: none;
-  font-family: "StratosSkyeng", sans-serif;
-  cursor: pointer;
-}
-
-button,
-._btn {
-  cursor: pointer;
-}
-
-ul li {
-  list-style: none;
-}
-
-@font-face {
-  font-family: "StratosSkyeng";
-  src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("../fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../fonts/StratosSkyeng.woff") format("woff"),
-    url("../fonts/StratosSkyeng.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-family: "StratosSkyeng", sans-serif;
-}
-
 .wrapper {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
 }
 
-.container-enter {
+.containerEnter {
   max-width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -58,23 +12,23 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-.modal__btn-enter:hover {
+.modalBtnEnter:hover {
   background-color: #3f007d;
 }
 
-.modal__btn-signup:hover {
+.modalBtnSignup:hover {
   background-color: #f4f5f6;
 }
 
-.modal__btn-enter:active {
+.modalBtnEnter:active {
   background-color: #271a58;
 }
 
-.modal__btn-signup:active {
+.modalBtnSignup:active {
   background-color: #d9d9d9;
 }
 
-.modal__block {
+.modalBlock {
   position: absolute;
   z-index: 2;
   left: calc(50% - (366px / 2));
@@ -82,7 +36,7 @@ body {
   opacity: 1;
 }
 
-.modal__form-login {
+.modalFormLogin {
   width: 366px;
   height: 439px;
   background-color: #ffffff;
@@ -100,23 +54,23 @@ body {
   padding: 43px 47px 47px 40px;
 }
 
-.modal__form-login input:first-child {
+.modalFormLogin input:first-child {
   margin-bottom: 30px;
 }
 
-.modal__logo {
+.modalLogo {
   width: 140px;
   height: 21px;
   margin-bottom: 34px;
   background-color: transparent;
 }
 
-.modal__logo img {
+.modalLogoImg {
   width: 140px;
   height: auto;
 }
 
-.modal__input {
+.modalInput {
   width: 100%;
   border-top: none;
   border-left: none;
@@ -125,7 +79,7 @@ body {
   padding: 8px 1px;
 }
 
-.modal__input::-webkit-input-placeholder {
+.modalInput::-webkit-input-placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -134,7 +88,7 @@ body {
   color: #d0cece;
 }
 
-.modal__input:-ms-input-placeholder {
+.modalInput:-ms-input-placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -143,7 +97,7 @@ body {
   color: #d0cece;
 }
 
-.modal__input::-ms-input-placeholder {
+.modalInput::-ms-input-placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -152,7 +106,7 @@ body {
   color: #d0cece;
 }
 
-.modal__input::placeholder {
+.modalIinput::placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -161,7 +115,7 @@ body {
   color: #d0cece;
 }
 
-.modal__btn-enter {
+.modalBbtnEnter {
   width: 278px;
   height: 52px;
   background-color: #580ea2;
@@ -180,7 +134,7 @@ body {
   justify-content: center;
 }
 
-.modal__btn-enter a {
+.modalBtnEnterA {
   width: 100%;
   height: 100%;
   font-style: normal;
@@ -200,7 +154,7 @@ body {
   justify-content: center;
 }
 
-.modal__btn-signup {
+.modalBtnSignup {
   width: 278px;
   height: 52px;
   background-color: transparent;
@@ -223,7 +177,7 @@ body {
   justify-content: center;
 }
 
-.modal__btn-signup a {
+.modalBtnSignupA {
   width: 100%;
   height: 100%;
   font-style: normal;
@@ -245,4 +199,4 @@ body {
 
 .login {
   margin-bottom: 30px;
-}
+} 

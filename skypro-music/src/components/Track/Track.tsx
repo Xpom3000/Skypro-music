@@ -6,32 +6,32 @@ export default function Track() {
     <div className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
-          <div className="track__title-image">
-            <svg className="track__title-svg">
+          <div className={styles.trackTitleImage}>
+            <svg className={styles.trackTitleSvg}>
               <use xlinkHref="img/icon/sprite.svg#icon-note" />
             </svg>
           </div>
-          <div className="track__title-text">
+          <div className={styles.trackTitleText}>
             <a className="track__title-link" href="http://">
-              Guilt <span className="track__title-span" />
+              Guilt <span className={styles.trackTitleSpan} />
             </a>
           </div>
         </div>
-        <div className="track__author">
-          <a className="track__author-link" href="http://">
+        <div className={styles.trackAuthor}>
+          <a className={styles.trackAuthorLink} href="http://">
             Nero
           </a>
         </div>
-        <div className="track__album">
-          <a className="track__album-link" href="http://">
+        <div className={styles.trackAlbum}>
+          <a className={styles.trackAlbumLink} href="http://">
             Welcome Reality
           </a>
         </div>
-        <div className="track__time">
-          <svg className="track__time-svg">
+        <div className={styles.trackTime}>
+          <svg className={styles.trackTimeSvg}>
             <use xlinkHref="img/icon/sprite.svg#icon-like" />
           </svg>
-          <span className="track__time-text">4:44</span>
+          <span className={styles.trackTimeText}>4:44</span>
         </div>
       </div>
     </div>

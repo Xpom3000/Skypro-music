@@ -1,15 +1,13 @@
-import Link from "next/link";
 import Image from "next/image";
-import styles from "./Signin.module.css";
-import classNames from "classnames";
-import "./././globals.css";
+import Link from "next/link";
+import styles from "./Signup.module.css";
 
-export default function SigninPage() {
+export default function SignupPage() {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.containerEnter}>
+      <div className={styles.containerSignup}>
         <div className={styles.modalBlock}>
-          <form className={styles.modalFormLogin} action="#">
+          <form className={styles.modalFormLogin}>
             <Link href="/">
               <div className={styles.modalLogo}>
                 <Image
@@ -21,7 +19,7 @@ export default function SigninPage() {
               </div>
             </Link>
             <input
-              className={classNames(styles.modalInput, styles.login)}
+              className={styles.modalInput}
               type="text"
               name="login"
               placeholder="Почта"
@@ -31,16 +29,15 @@ export default function SigninPage() {
               type="password"
               name="password"
               placeholder="Пароль"
-            />{" "}
-            <button className={styles.modalBtnEnter}>
-              <Link href="/" className={styles.modalBtnEnterA}>
-                Войти
-              </Link>
-            </button>
-            <button className={styles.modalBtnSignup}>
-              <Link href="/signup" className={styles.modalBtnSignupA}>
-                Зарегистрироваться
-              </Link>
+            />
+            <input
+              className={styles.modalInput}
+              type="password"
+              name="password"
+              placeholder="Повторите пароль"
+            />
+            <button className={styles.modalBtnSignupEnt}>
+              <Link href="/" className={styles.modalBtnSsignupEntA}>Зарегистрироваться</Link>
             </button>
           </form>
         </div>

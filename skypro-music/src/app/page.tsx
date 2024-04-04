@@ -9,7 +9,13 @@ export default function Home() {
         <main className="main">
           <nav className="main__nav nav">
             <div className="nav__logo logo">
-              <Image alt="Cкайпро-музыка.логотип" className="logo__image" width={113} height={ 17} src="/img/logo.png" />
+              <Image
+                alt="Cкайпро-музыка.логотип"
+                className="logo__image"
+                width={113}
+                height={17}
+                src="/img/logo.png"
+              />
             </div>
             <div className="nav__burger burger">
               <span className="burger__line" />
@@ -71,7 +77,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="content__playlist playlist">
-                <Track/>
+                <Track />
               </div>
             </div>
           </div>
@@ -88,27 +94,33 @@ export default function Home() {
               <div className="sidebar__list">
                 <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
-                    <img
+                    <Image
                       className="sidebar__img"
-                      src="img/playlist01.png"
+                      width={100}
+                      height={100}
+                      src="/img/playlist01.png"
                       alt="day's playlist"
                     />
                   </a>
                 </div>
                 <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
-                    <img
+                    <Image
                       className="sidebar__img"
-                      src="img/playlist02.png"
+                      width={100}
+                      height={100}
+                      src="/img/playlist02.png"
                       alt="day's playlist"
                     />
                   </a>
                 </div>
                 <div className="sidebar__item">
                   <a className="sidebar__link" href="#">
-                    <img
+                    <Image
                       className="sidebar__img"
-                      src="img/playlist03.png"
+                      width={100}
+                      height={100}
+                      src="/img/playlist03.png"
                       alt="day's playlist"
                     />
                   </a>
