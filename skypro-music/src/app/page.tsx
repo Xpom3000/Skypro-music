@@ -24,7 +24,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <footer className="footer" /> */}
+        <footer className={ styles.footer} />
       </div>
     </div>
   );
