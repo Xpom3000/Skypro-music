@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Signin.module.css";
 import classNames from "classnames";
-import "./././globals.css";
 
 export default function SigninPage() {
   return (
