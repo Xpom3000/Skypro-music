@@ -1,0 +1,49 @@
+.mainCenterblock {
+  width: auto;
+  -webkit-box-flex: 3;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+  padding: 20px 40px 20px 111px;
+}
+
+.centerblockH2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.8px;
+  margin-bottom: 45px;
+}
+
+.centerblockContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .mainCenterblock {
+    padding-left: calc(50% - 393px);
+    padding-right: calc(50% - 393px);
+  }
+
+  .centerblockH2 {
+    font-style: normal;
+    font-weight: 15;
+    font-size: 48px;
+    line-height: 32px;
+    letter-spacing: -0.8px;
+    margin-bottom: 25px;
+
+   
+  }
+
+  .main {
+    grid: revert;
+  }
+
+}   
