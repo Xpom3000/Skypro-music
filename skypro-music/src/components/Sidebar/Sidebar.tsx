@@ -7,11 +7,13 @@ export default function Sidebar() {
     <div className={styles.mainSidebar}>
       <div className={styles.sidebarPpersonal}>
         <p className={styles.sidebarPersonalName}>Sergey.Ivanov</p>
-        <div className={styles.sidebarIcon}>
-          <svg>
-            <use xlinkHref="img/icon/sprite.svg#logout" />
-          </svg>
-        </div>
+        <Link href="/signin">
+          <div className={styles.sidebarIcon}>
+            <svg>
+              <use xlinkHref="img/icon/sprite.svg#logout" />
+            </svg>
+          </div>
+        </Link>
       </div>
       <div className={styles.sidebarBlock}>
         <div className={styles.sidebarList}>
@@ -33,7 +35,7 @@ export default function Sidebar() {
                 width={100}
                 height={100}
                 src="/img/playlist02.png"
-                alt="Плэйлист дня"
+                alt="100 танцевалхитовьных"
               />
             </Link>
           </div>
@@ -44,7 +46,7 @@ export default function Sidebar() {
                 width={100}
                 height={100}
                 src="/img/playlist03.png"
-                alt="Плэйлист дня"
+                alt="Инди заряд"
               />
             </Link>
           </div>

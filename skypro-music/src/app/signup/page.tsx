@@ -37,7 +37,9 @@ export default function SignupPage() {
               placeholder="Повторите пароль"
             />
             <button className={styles.modalBtnSignupEnt}>
-              <Link href="/" className={styles.modalBtnSsignupEntA}>Зарегистрироваться</Link>
+              <Link href="/" className={styles.modalBtnSsignupEntA}>
+                Зарегистрироваться
+              </Link>
             </button>
           </form>
         </div>

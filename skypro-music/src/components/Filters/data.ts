@@ -1,14 +1,14 @@
 export const filters = [
     {
       title: "Исполнитель",
-      list: ["Даша", "Лиза", "Иван"],
+      list: ["Michael Jackson", "Frank Sinatra", "Calvin Harris", "Zhu", "Arctic Monkeys"],
     },
     {
       title: "Год выпуска",
-      list: ["2018", "2020", "2021"],
+      list: ["По умолчанию", "Сначала новые", "Сначала старые"],
     },
     {
       title: "Жанр",
-      list: ["Классика", "Поп", "Рок"],
+      list: ["Рок", "Хип-хоп", "Поп-музыка", "Техно", "Инди"],
     },
   ];
