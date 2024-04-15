@@ -1,3 +1,4 @@
+
 import styles from "./CenterBlock.module.css";
 import Filters from "../Filters/Filters";
 import Search from "../Search/Search";

@@ -1,3 +1,4 @@
+
 // Counter.tsx Клиентский компонент
 "use client";
 
@@ -8,6 +9,7 @@ import { useState } from "react";
 
 export default function Navigation() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
   return (
     <main className={styles.main}>
       <nav className={styles.mainNav}>
@@ -20,10 +22,12 @@ export default function Navigation() {
             src="/img/logo.png"
           />
         </div>
+
         <div
           onClick={() => setIsOpened((prev) => !prev)}
           className={styles.navBurger}
         >
+
           <span className={styles.burgerLine} />
           <span className={styles.burgerLine} />
           <span className={styles.burgerLine} />
