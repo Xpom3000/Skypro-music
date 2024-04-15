@@ -33,21 +33,22 @@ export default async function Playlist() {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-        {tracksData.map((trackData) => {
+        {tracksData.map((trackData) => (
           <Track
             key={trackData.id}
             name={trackData.name}
             author={trackData.author}
             album={trackData.album}
-          />;
-        })}
+            id={0}
+            release_date={""}
+            genre={""}
+            duration_in_seconds={0}
+            logo={null}
+            track_file={""}
+            stared_user={[]}
+          />
+        ))}
       </div>
     </div>
   );
 }
-
-// Обратите внимание, что функция компонента также является асинхронной
-//   export default async function HomePage() {
-//
-
-//     return <main>/* Некий контент */</main>;

@@ -1,5 +1,5 @@
-.playlistContent {
-}
+/* .playlistContent {
+} */
 
 .contentTitle {
   display: -webkit-box;
@@ -22,17 +22,19 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 590px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
+  scrollbar-color: #39774c black;
 }
 
-.playlist {
-}
+/* .playlist {
+} */
 
-.playlist-title__col {
+.playlistTitleCol {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

@@ -1,26 +1,66 @@
 .filterButton {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    border: 1px solid #ffffff;
-    border-radius: 60px;
-    padding: 6px 20px;
-  }
-  
-  .filterButton:not(:last-child) {
-    margin-right: 10px;
-  }
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid #ffffff;
+  border-radius: 60px;
+  padding: 6px 20px;
+}
 
-  .btnText:hover {
-    border-color: #d9b6ff;
-    color: #d9b6ff;
-    cursor: pointer;
-  }
-  
-  .btnText:active {
-    border-color: #ad61ff;
-    color: #ad61ff;
-    cursor: pointer;
-  }
-  
+.filterButton:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btnText:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+
+.btnText:active {
+  border-color: #ad61ff;
+  color: #ad61ff;
+  cursor: pointer;
+}
+
+/*Всплывающее поиск*/
+
+.navMenu {
+  display: block;
+  visibility: visible;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.menuList {
+  padding: 18px 0 10px 0;
+  height: 273px;
+  overflow-y: auto;
+  position: absolute;
+  scrollbar-color: #39774c black;
+  border-radius: 12px;
+  background: rgb(49, 49, 49);
+  width: 248px;
+  display: flex;
+  flex-direction: column;
+  padding: revert;
+}
+.menuList::-webkit-scrollbar {
+  width: 15px; /* Ширина всего элемента навигации */
+}
+
+.menuItem {
+
+  margin: 28px 0px;
+}
+
+.menuLink {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}

@@ -12,16 +12,16 @@ export default function Filters() {
   }
   return (
     <div className={styles.centerblockFilter}>
-      <div className={styles.filterTtitle}>Искать по:</div>
-      {filters.map((filter) => {
+      <div className={styles.filterTtitle}>Искать по:</div> 
+      {filters.map((filter) => (
         <FilterItem
           key={filter.title}
           isOpened={activeFilter === filter.title}
           handleFilterClick={handleFilterClick}
           title={filter.title}
           list={filter.list}
-        />;
-      })}
+        />
+      ))}
     </div>
   );
 }
