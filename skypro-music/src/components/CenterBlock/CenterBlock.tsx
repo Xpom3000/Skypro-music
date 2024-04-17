@@ -10,7 +10,7 @@ export default function CenterBlock() {
       <Search />
       <h2 className={styles.centerblockH2}>Треки</h2>
       <Filters />
-      <Playlist />
+      <Playlist /> 
     </div>
   );
 }
