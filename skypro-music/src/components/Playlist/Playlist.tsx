@@ -11,7 +11,7 @@ type PlaylistType = {
   setTrack: (param: trackType) => void;
 };
 
-export default function Playlist({ setTrack }: PlaylistType) {
+export default  async function Playlist({ setTrack }: PlaylistType) {
   let tracksData: trackType[];
   try {
     tracksData = await getTracks();
