@@ -3,8 +3,9 @@
 import classNames from "classnames";
 import styles from "./Player.module.css";
 import Link from "next/link";
-import { useRef } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { trackType } from "@/type";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 type PlayerType = {
   track: trackType;
@@ -12,11 +13,32 @@ type PlayerType = {
 
 export default function Player({ track }: PlayerType) {
   const audioRef = useRef<null | HTMLAudioElement>(null);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const duration = audioRef.current?.duration;
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Number(event.target.value);
+    }
+    
+  };
   return (
     <div className={styles.bar}>
       <div className={styles.barContent}>
         <audio ref={audioRef} src={track.track_file}></audio>
-        <div className={styles.barPlayerProgress} />
+        <ProgressBar  max={duration} value={currentTime} step={} onChange />
         <div className={styles.barPlayerBlock}>
           <div className={styles.barPlayer}>
             <div className={styles.playerControls}>
