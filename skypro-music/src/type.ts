@@ -1,4 +1,4 @@
-type UserType = {
+type userType = {
   id: number,
   username: string,
   first_name: string,
@@ -13,7 +13,7 @@ export type FilterItemType = {
   isOpened: boolean;  
 };
 
-export type TrackType = {
+export type trackType = {
   id: number,
   name: string,
   author: string,
@@ -23,7 +23,8 @@ export type TrackType = {
   album: string,
   logo: string | null,
   track_file: string,
-  stared_user: UserType[]
+  stared_user: userType[]
+  onClick: (newFilter: string) => void;
 };
 
 export type ErrorType = {

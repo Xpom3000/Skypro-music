@@ -37,6 +37,8 @@
 }
 
 .menuList {
+  position: absolute;
+  /* top: 45px; */
   padding: 18px 0 10px 0;
   height: 273px;
   overflow-y: auto;
@@ -49,13 +51,28 @@
   flex-direction: column;
   padding: revert;
 }
+
 .menuList::-webkit-scrollbar {
   width: 15px; /* Ширина всего элемента навигации */
 }
 
 .menuItem {
-
+position: static;
   margin: 28px 0px;
+}
+.menuItem:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+
+.menuItem:active {
+  color: #ad61ff; 
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.1%; 
+  text-align: left;
 }
 
 .menuLink {

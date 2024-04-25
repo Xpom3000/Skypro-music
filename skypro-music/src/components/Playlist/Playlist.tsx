@@ -2,16 +2,28 @@ import classNames from "classnames";
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
 import { getTracks } from "@/tracks";
-import { TrackType } from "@/type";
+import { trackType } from "@/type";
+import { useEffect, useState } from "react";
 
-export default async function Playlist() {
-  let tracksData: TrackType[];
+type PlaylistType = {
+  setTrack: (param: trackType) => void
+};
 
-  try {
-    tracksData = await getTracks();
-  } catch (error: any) {
-    throw new Error(error.message);
-  }
+export default function Playlist({setTrack}:PlaylistType) {
+  // let tracksData: trackType[];
+  // try {
+  //   tracksData = await getTracks();
+  // } catch (error: any) {
+  //   throw new Error(error.message);
+  // }
+
+  const [tracksData, setTracksData] = useState<trackType[]>([]);
+  useEffect(() => {
+    getTracks().then((data: trackType[]) => setTracksData(data))
+      .catch((error: any) => {
+        throw new Error(error.message);
+      });
+  }, []);
   return (
     <div
       className={classNames(styles.centerblockContent, styles.playlistContent)}
@@ -35,17 +47,12 @@ export default async function Playlist() {
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
         {tracksData.map((trackData) => (
           <Track
+            onClick={() => setTrack(trackData)}
             key={trackData.id}
             name={trackData.name}
             author={trackData.author}
             album={trackData.album}
-            id={0}
-            release_date={""}
-            genre={""}
-            duration_in_seconds={0}
-            logo={null}
-            track_file={""}
-            stared_user={[]}
+         
           />
         ))}
       </div>
