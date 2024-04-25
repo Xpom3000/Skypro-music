@@ -1,10 +1,17 @@
 import Link from "next/link";
 import styles from "./Track.module.css";
-import { TrackType } from "@/type";
+import { trackType } from "@/type";
 
-export default function Track({name, author, album}: TrackType) {
+type TrackType = {
+  name: string,
+  author: string,
+  album: string,
+  onClick: () => void
+}
+
+export default function Track({name, author, album, onClick}: TrackType) {
   return (
-    <div className={styles.playlistItem}>
+    <div onClick={onClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
@@ -13,20 +20,20 @@ export default function Track({name, author, album}: TrackType) {
             </svg>
           </div>
           <div className={styles.trackTitleText}>
-            <Link className={styles.trackTitleLink} href="http://">
+            <span className={styles.trackTitleLink}>
               {name} <span className={styles.trackTitleSpan} />
-            </Link>
+            </span>
           </div>
         </div>
         <div className={styles.trackAuthor}>
-          <Link className={styles.trackAuthorLink} href="http://">
+          <span className={styles.trackAuthorLink} >
             {author}
-          </Link>
+          </span>
         </div>
         <div className={styles.trackAlbum}>
-          <Link className={styles.trackAlbumLink} href="http://">
+          <span className={styles.trackAlbumLink} >
            {album}
-          </Link>
+          </span>
         </div>
         <div className={styles.trackTime}>
           <svg className={styles.trackTimeSvg}>

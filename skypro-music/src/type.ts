@@ -13,7 +13,7 @@ export type FilterItemType = {
   isOpened: boolean;  
 };
 
-export type TrackType = {
+export type trackType = {
   id: number,
   name: string,
   author: string,
@@ -28,5 +28,5 @@ export type TrackType = {
 
 export type ErrorType = {
   error: string, //узнать правда ли этот тип или другой
-  reset: any  , //узнать правда ли этот тип или другой
+  reset: () => void , //узнать правда ли этот тип или другой
 }

@@ -66,6 +66,9 @@
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 1024px) {
@@ -77,13 +80,11 @@
   .container {
     height: 268px;
   }
-/* 
+  /* 
   .main {
     grid: revert;
   }
   */
-
-
 
   .productContent {
     column-gap: 29px;
@@ -110,4 +111,3 @@
       padding-top: 0px;
   }*/
 }
-

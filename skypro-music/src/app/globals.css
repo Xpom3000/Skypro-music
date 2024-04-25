@@ -12,7 +12,7 @@
 }
 
 a,
-a:visited {
+span:visited {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
