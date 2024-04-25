@@ -12,21 +12,21 @@ type PlaylistType = {
 };
 
 export default function Playlist({ setTrack }: PlaylistType) {
-  // let tracksData: trackType[];
-  // try {
-  //   tracksData = await getTracks();
-  // } catch (error: any) {
-  //   throw new Error(error.message);
-  // }
+  let tracksData: trackType[];
+  try {
+    tracksData = await getTracks();
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
   const dispatch = useAppDispatch();
-  const [tracksData, setTracksData] = useState<trackType[]>([]);
-  useEffect(() => {
-    getTracks()
-      .then((data: trackType[]) => setTracksData(data))
-      .catch((error: any) => {
-        throw new Error(error.message);
-      });
-  }, []);
+  // const [tracksData, setTracksData] = useState<trackType[]>([]);
+  // useEffect(() => {
+  //   getTracks()
+  //     .then((data: trackType[]) => setTracksData(data))
+  //     .catch((error: any) => {
+  //       throw new Error(error.message);
+  //     });
+  // }, []);
 
   return (
     <div 
