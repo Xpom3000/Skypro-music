@@ -11,8 +11,11 @@ export default function FilterItem({
   return (
     <>
       <div
-        onClick={() => handleFilterClick(title)}
-        className={classNames(styles.filterButton, styles.btnText)}
+         onClick={() => handleFilterClick(title)}
+         className={classNames(styles.filterButton, styles.btnText, {
+           [styles.active]: isOpened,
+         })}
+ 
       >
         {title}
       </div>
