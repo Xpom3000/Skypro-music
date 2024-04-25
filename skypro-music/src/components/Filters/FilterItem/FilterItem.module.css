@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-.btnText:active {
+.active {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
@@ -51,13 +51,16 @@
   flex-direction: column;
   padding: revert;
 }
+.menuList:checked {
+  color: #ad61ff;
+}
 
 .menuList::-webkit-scrollbar {
   width: 15px; /* Ширина всего элемента навигации */
 }
 
 .menuItem {
-position: static;
+  position: static;
   margin: 28px 0px;
 }
 .menuItem:hover {
@@ -67,12 +70,17 @@ position: static;
 }
 
 .menuItem:active {
-  color: #ad61ff; 
+  color: #ad61ff;
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: 0.1%; 
+  letter-spacing: 0.1%;
   text-align: left;
+}
+.activeMenuItem{
+  letter-spacing: 0%;
+  text-align: left;
+  text-decoration-line: underline;
 }
 
 .menuLink {
