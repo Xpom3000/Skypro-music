@@ -5,8 +5,10 @@ import Navigation from "@/components/Navigation/Navigation";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Player from "@/components/Player/Player";
 import Volume from "@/components/Volume/Volume";
+import { useState } from "react";
 
 export default function Home() {
+  const [track, setTrack] = useState();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -19,7 +21,7 @@ export default function Home() {
           <div className={styles.barContent}>
             <div className={styles.barPlayerProgress} />
             <div className={styles.barPlayerBlock}>
-              <Player />
+              {track && <Player track={track } />}
               <Volume />
             </div>
           </div>

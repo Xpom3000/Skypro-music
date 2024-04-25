@@ -1,7 +1,13 @@
 import classNames from "classnames"
 import styles from "./Player.module.css"
 import Link from "next/link"
+import { useAppSelector } from "@/store/hooks"
 
+type PlauerType = {
+  track: typeTrack;
+}
+
+const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
 export default function Player() {
     return (
         <div className={styles.barPlayer}>
