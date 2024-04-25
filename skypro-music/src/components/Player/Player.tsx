@@ -32,13 +32,12 @@ export default function Player({ track }: PlayerType) {
     if (audioRef.current) {
       audioRef.current.currentTime = Number(event.target.value);
     }
-    
   };
   return (
     <div className={styles.bar}>
       <div className={styles.barContent}>
         <audio ref={audioRef} src={track.track_file}></audio>
-        <ProgressBar  max={duration} value={currentTime} step={} onChange />
+        <ProgressBar max={duration} value={currentTime} step={} onChange />
         <div className={styles.barPlayerBlock}>
           <div className={styles.barPlayer}>
             <div className={styles.playerControls}>
