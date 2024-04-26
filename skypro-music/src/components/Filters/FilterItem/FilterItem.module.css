@@ -1,4 +1,10 @@
+/* .wrapper {
+  position: relative;
+ 
+} */
+
 .filterButton {
+  
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -48,6 +54,8 @@
   display: flex;
   flex-direction: column;
   padding: revert;
+  /* top: 25px;
+  left: 10px; */
 }
 .menuList::-webkit-scrollbar {
   width: 15px; /* Ширина всего элемента навигации */

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
-import { getTracks } from "@/tracks";
+import { getTracks } from "@/store/tracks";
 import { trackType } from "@/type";
 import { useEffect, useState } from "react";
 
