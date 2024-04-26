@@ -1,9 +1,15 @@
 import styles from "./Track.module.css";
-// import classNames from 'classnames';
 
-export default function Track() {
+type TrackType = {
+  name: string,
+  author: string,
+  album: string,
+  onClick: () => void;
+};
+
+export default function Track({name, author, album, onClick}: TrackType) {
   return (
-    <div className={styles.playlistItem}>
+    <div onClick={onClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
@@ -12,20 +18,21 @@ export default function Track() {
             </svg>
           </div>
           <div className={styles.trackTitleText}>
-            <a className="track__title-link" href="http://">
-              Guilt <span className={styles.trackTitleSpan} />
-            </a>
+            <span className={styles.trackTitleLink} >
+              {name}
+              <span className={styles.trackTitleSpan} />
+            </span>
           </div>
         </div>
         <div className={styles.trackAuthor}>
-          <a className={styles.trackAuthorLink} href="http://">
-            Nero
-          </a>
+          <span className={styles.trackAuthorLink}>
+            {author}
+          </span>
         </div>
         <div className={styles.trackAlbum}>
-          <a className={styles.trackAlbumLink} href="http://">
-            Welcome Reality
-          </a>
+          <span className={styles.trackAlbumLink}>
+           {album}
+          </span>
         </div>
         <div className={styles.trackTime}>
           <svg className={styles.trackTimeSvg}>

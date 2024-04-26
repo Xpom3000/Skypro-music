@@ -1,7 +1,13 @@
+// Counter.tsx Клиентский компонент
+"use client";
+
 import Image from "next/image";
 import styles from "./Navigation.module.css";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Navigation() {
+  const [isOpened, setIsOpened] = useState<boolean>(false);
   return (
     <main className={styles.main}>
       <nav className={styles.mainNav}>
@@ -14,30 +20,32 @@ export default function Navigation() {
             src="/img/logo.png"
           />
         </div>
-        <div className={styles.navBurger}>
+        <div onClick={() => setIsOpened((prev) => !prev)} className={styles.navBurger}>
           <span className={styles.burgerLine} />
           <span className={styles.burgerLine} />
           <span className={styles.burgerLine} />
         </div>
-        <div className={styles.navMenu}>
-          <ul className={styles.menuList}>
-            <li className="menu__item">
-              <a href="#" className="menu__link">
-                Главное
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#" className="menu__link">
-                Мой плейлист
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="../signin.html" className="menu__link">
-                Войти
-              </a>
-            </li>
-          </ul>
-        </div>
+        {isOpened && (
+          <div className={styles.navMenu}>
+            <ul className={styles.menuList}>
+              <li className={styles.menuItem}>
+                <Link href="#" className={styles.menuLink}>
+                  Главное
+                </Link>
+              </li>
+              <li className={styles.menuItem}>
+                <Link href="#" className={styles.menuLink}>
+                  Мой плейлист
+                </Link>
+              </li>
+              <li className={styles.menuItem}>
+                <Link href="/signin" className={styles.menuLink}>
+                  Выйти
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </nav>
     </main>
   );

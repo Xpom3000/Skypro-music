@@ -1,0 +1,91 @@
+.filterButton {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid #ffffff;
+  border-radius: 60px;
+  padding: 6px 20px;
+}
+
+.filterButton:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btnText:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+
+.active {
+  border-color: #ad61ff;
+  color: #ad61ff;
+  cursor: pointer;
+}
+
+/*Всплывающее поиск*/
+
+.navMenu {
+  display: block;
+  visibility: visible;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.menuList {
+  position: absolute;
+  /* top: 45px; */
+  padding: 18px 0 10px 0;
+  height: 273px;
+  overflow-y: auto;
+  position: absolute;
+  scrollbar-color: #39774c black;
+  border-radius: 12px;
+  background: rgb(49, 49, 49);
+  width: 248px;
+  display: flex;
+  flex-direction: column;
+  padding: revert;
+}
+.menuList:checked {
+  color: #ad61ff;
+}
+
+.menuList::-webkit-scrollbar {
+  width: 15px; /* Ширина всего элемента навигации */
+}
+
+.menuItem {
+  position: static;
+  margin: 28px 0px;
+}
+.menuItem:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+
+.menuItem:active {
+  color: #ad61ff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.1%;
+  text-align: left;
+}
+.activeMenuItem{
+  letter-spacing: 0%;
+  text-align: left;
+  text-decoration-line: underline;
+}
+
+.menuLink {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}

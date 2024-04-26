@@ -11,8 +11,8 @@
   box-sizing: border-box;
 }
 
-a,
-a:visited {
+span,
+span:visited {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
@@ -36,10 +36,12 @@ body {
 }
 
 .wrapper {
-  width: 100%;
+  position: absolute;
+  left: 10px;
+  /* width: 100%;
   min-height: 100%;
   overflow: hidden;
-  background-color: #383838;
+  background-color: #383838; */
 }
 
 .container {
@@ -94,7 +96,7 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
+/* 
 .main__nav {
   width: 244px;
   background-color: #181818;
@@ -744,4 +746,4 @@ body {
 
 .volume__progress-line {
   width: 109px;
-}
+} */

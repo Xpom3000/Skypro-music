@@ -22,7 +22,8 @@
   align-items: center;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
-  justify-content: end;
+  /* justify-content: end; */
+  flex: end;
 }
 
 .volumeImage {
@@ -47,4 +48,12 @@
 
 .btn {
   cursor: pointer;
+ }
+
+@media (max-width: 1024px) {
+  .barVolumeBlock {
+    padding-left: calc(50% - 393px);
+    padding-right: calc(50% - 393px);
+  }
+  
 }

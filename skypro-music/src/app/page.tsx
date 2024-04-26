@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CenterBlock from "@/components/CenterBlock/CenterBlock";
 import styles from "./page.module.css";
 import Navigation from "@/components/Navigation/Navigation";
@@ -24,7 +23,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <footer className={ styles.footer} />
+        <footer className={styles.footer} />
       </div>
     </div>
   );
