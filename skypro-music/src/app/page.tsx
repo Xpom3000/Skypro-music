@@ -9,11 +9,12 @@ import Volume from "@/components/Volume/Volume";
 import Search from "@/components/Search/Search";
 import Filters from "@/components/Filters/Filters";
 import Playlist from "@/components/Playlist/Playlist";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { trackType } from "@/type";
 
 export default function Home() {
   const [track, setTrack] = useState<trackType | null>(null);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -38,7 +39,15 @@ export default function Home() {
         {track && (
           <footer className={styles.footer}>
             <Player track={track} />
-            <Volume />
+            <Volume
+              min={0}
+              max={0}
+              step={0}
+              value={0}
+              onChange={function (e: ChangeEvent<HTMLInputElement>): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
           </footer>
         )}
       </div>

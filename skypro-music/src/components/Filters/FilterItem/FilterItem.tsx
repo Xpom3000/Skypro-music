@@ -19,7 +19,7 @@ export default function FilterItem({
         <div className={styles.navMenu}>
           <ul className={styles.menuList}>
             {list.map((item) => (
-              <li className={styles.menuItem} key={item}>
+              <li onClick={() => handleFilterClick(item)} className={classNames(styles.menuItem, {[styles.activeMenuItem]: isOpened})} key={item} >
                 {item}
               </li>
             ))}

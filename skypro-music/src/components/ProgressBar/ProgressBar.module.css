@@ -40,9 +40,13 @@
 
 /* Стили для Firefox */
 .styledProgressInput::-moz-range-track {
-  background: var(--progress-bg-color);
+  width: 100%;
   height: var(--progress-height);
+  background: var(--progress-bg-color);
+  border: none;
+  border-radius: 0px;
 }
+
 
 .styledProgressInput::-moz-range-thumb {
   border: none;
@@ -50,4 +54,9 @@
   width: 25px;
   border-radius: 50%;
   background: var(--progress-color);
+}
+
+.styledProgressInput::-moz-range-progress {
+  background-color: var(--progress-color);
+  height: var(--progress-height);
 }

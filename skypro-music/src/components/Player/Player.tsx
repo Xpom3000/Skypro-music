@@ -11,10 +11,19 @@ type PlayerType = {
   track: trackType;
 };
 
+type PlayerControlsType = {
+  togglePlay: () => void;
+  isPlaying: boolean;
+  isLooping: boolean;
+  toggleLoop: () => void;
+};
+
 export default function Player({ track }: PlayerType) {
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isLooping, setIsLooping] = useState<boolean>(false);
+  const [volume] = useState<number>(0.5);
   const duration = audioRef.current?.duration;
 
   const togglePlay = () => {
@@ -28,11 +37,25 @@ export default function Player({ track }: PlayerType) {
     }
   };
 
+  const toggleLoop = () => {
+    if (audioRef.current) {
+      if (isLooping) {
+        audioRef.current.loop = false;
+      } else {
+        audioRef.current.loop = true;
+      }
+    }
+    setIsLooping((prev) => !prev);
+  };
+
   useEffect(() => {
     audioRef.current?.addEventListener("timeupdate", () => setCurrentTime(audioRef.current!.currentTime))
   })
   const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
+      audioRef.current.volume = volume;
+      audioRef.current.play();
+      setIsPlaying(true);
       setCurrentTime(Number(event.target.value))
       audioRef.current.currentTime = Number(event.target.value);
     }
@@ -65,11 +88,12 @@ export default function Player({ track }: PlayerType) {
                   <use xlinkHref="img/icon/sprite.svg#icon-next" />
                 </svg>
               </div>
-              <div
+              <div onClick={toggleLoop}
                 className={classNames(styles.playerBtnRepeat, styles.btnIcon)}
               >
                 <svg className={styles.playerBtnRepeatSvg}>
-                  <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
+                  <use xlinkHref={`"img/icon/sprite.svg#${
+              isLooping ? "icon-repeat"  : "icon-repeat-toggled"}`}/>
                 </svg>
               </div>
               <div
