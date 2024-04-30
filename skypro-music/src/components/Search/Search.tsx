@@ -1,6 +1,16 @@
+import { useState } from "react";
 import styles from "../Search/Search.module.css";
+import { useAppDispatch } from "@/store/hooks";
 
 export default function Search() {
+  const [seafchValue, setSeafchValue] = useState("");
+  const dispatch = useAppDispatch();
+
+  const handleChange = (e) => {
+    setSeafchValue(e.target.value);
+    
+    
+  }
   return (
     <div className={styles.centerblockSearch}>
       <svg className={styles.searchSvg}>

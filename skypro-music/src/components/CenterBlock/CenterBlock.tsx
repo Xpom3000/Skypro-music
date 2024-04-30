@@ -5,15 +5,33 @@ import Filters from "../Filters/Filters";
 import Search from "../Search/Search";
 import Playlist from "../Playlist/Playlist"
 import { trackType } from "@/type";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getTracks } from "@/tracks";
 
 export default function CenterBlock() {
-  const [track, setTrack] = useState<trackType | null>(null);
+  const [track, setTrack] = useState < trackType[] | ([])>;
+  let tracksData: trackType[];
+
+  useEffect
+  getTracks().then((tracksData) => {
+    setTrack(tracksData)
+    dispatch(setInitialTracks({ initialTracks: tracksData}))
+  })
+    
+  
+
+  // try {
+  //   tracksData = await getTracks();
+  //   dispatch(setInitialTracks({ initialTracks: tracksData}))
+  // }
+  // catch (error: any) {
+  //   throw new Error(error.messege)
+  // }
   return (
     <div className={styles.mainCenterblock}>
       <Search />
       <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filters />
+      <Filters  tracksData/>
       <Playlist setTrack={setTrack} /> 
     </div>
   );

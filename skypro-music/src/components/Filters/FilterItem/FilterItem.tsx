@@ -1,15 +1,31 @@
-import { FilterItemType } from "@/type";
+import { FilterItemType, trackType } from "@/type";
 import styles from "./FilterItem.module.css";
 import classNames from "classnames";
-
+import { order } from "../data";
+import { useAppStore } from "@/store/hooks";
 
 export default function FilterItem({
   handleFilterClick,
   title,
-  list,
+  value,
   isOpened,
+  tracksData
 }: FilterItemType) {
- 
+  const optionList = useAppStore((state) => state.playlist.filterOptions.author);
+  const dispatch = useAppDispatch();
+  const getFilterList = () => {
+    if (value !== "order") {
+      const array = new Set (tracksData?.map((track: trackType) => track[value] || []);
+      return Array.from(array) 
+      )
+  return order;
+    }
+  };
+const toggleFilter = (item: string) => {
+  dispatch(setFilters(author: authorsList.includes(item) ? : authorList.filter((el) => el !== item) : [...authorList, item]))
+    
+};
+  getFilterList();
   return (
     <>
       <div
@@ -25,8 +41,8 @@ export default function FilterItem({
       {isOpened && (
         <div className={styles.navMenu}>
           <ul className={styles.menuList}>
-            {list.map((item) => (
-              <li className={styles.menuItem} key={item}>
+            {getFilterList().map((item) => (
+              <li onClick={() => toggleFilter(item)} className={styles.menuItem} key={item}>
                 {item}
               </li>
             ))}

@@ -1,3 +1,7 @@
+type FilterType = [
+  
+]
+
 export const filters = [
     {
       title: "Исполнитель",
@@ -11,4 +15,6 @@ export const filters = [
       title: "Жанр",
       list: ["Рок", "Хип-хоп", "Поп-музыка", "Техно", "Инди"],
     },
-  ];
+];
+  
+export const order = ["По умолчанию", "Сначала новые", "Сначала старые"];

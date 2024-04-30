@@ -8,9 +8,10 @@ type userType = {
 
 export type FilterItemType = {
   title: string;
-  list: string[];
+  value: "author" | "ganre" | "order"
   handleFilterClick: (newFilter: string) => void;
   isOpened: boolean;  
+  // trackData: TracksType
 };
 
 export type trackType = {
