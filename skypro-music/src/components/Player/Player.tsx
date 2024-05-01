@@ -11,12 +11,11 @@ import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppSelector } from "@/store/hooks";
 
-
 type PlayerType = {
   track: trackType;
 };
 
-export default function Player({ track }: PlayerType) {
+export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -81,82 +80,98 @@ export default function Player({ track }: PlayerType) {
     }
   };
   return (
-    <div className={styles.bar}>
-      <div className={styles.barContent}>
-        <audio
-          ref={audioRef}
-          src={track.track_file}
-          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-        ></audio>
-        <div className={styles.trackTimeBlock}>
-          <div>{durationFormat(currentTime)}</div>
-          <div> / </div>
-          <div>{durationFormat(duration)}</div>
-        </div>
-        <ProgressBar
-          max={duration}
-          value={currentTime}
-          step={0.1}
-          onChange={handleSeek}
-        />
-        <div className={styles.barPlayerBlock}>
-          <div className={styles.barPlayer}>
-            <PlayerControls
-              togglePlay={togglePlay}
-              isPlaying={isPlaying}
-              toggleLoop={toggleLoop}
-              isLooping={isLooping}
+    <>
+      { currentTrack && (
+        <div className={styles.bar}>
+          <div className={styles.barContent}>
+            <audio
+              ref={audioRef}
+              src={currentTrack.track_file}
+              onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+            ></audio>
+            <div className={styles.trackTimeBlock}>
+              <div>{durationFormat(currentTime)}</div>
+              <div> / </div>
+              <div>{durationFormat(duration)}</div>
+            </div>
+            <ProgressBar
+              max={duration}
+              value={currentTime}
+              step={0.1}
+              onChange={handleSeek}
             />
-            <div
-              className={classNames(styles.playerTrackPlay, styles.trackPlay)}
-            >
-              <div className={styles.trackPlayContain}>
-                <div className={styles.trackPlayImage}>
-                  <svg className={styles.trackPlaySvg}>
-                    <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                  </svg>
-                </div>
-                <div className={styles.trackPlayAuthor}>
-                  <Link className={styles.trackPlayAuthorLink} href="http://">
-                    {track.name}
-                  </Link>
-                </div>
-                <div className={styles.trackPlayAlbum}>
-                  <Link className={styles.trackPlayAlbumLink} href="http://">
-                    {track.author}
-                  </Link>
-                </div>
-              </div>
-              <div className={styles.trackPlayLikeDis}>
-                <div
-                  className={classNames(styles.trackPlayLike, styles.btnIcon)}
-                >
-                  <svg className={styles.trackPlayLikeSvg}>
-                    <use xlinkHref="img/icon/sprite.svg#icon-like" />
-                  </svg>
-                </div>
+            <div className={styles.barPlayerBlock}>
+              <div className={styles.barPlayer}>
+                <PlayerControls
+                  togglePlay={togglePlay}
+                  isPlaying={isPlaying}
+                  toggleLoop={toggleLoop}
+                  isLooping={isLooping}
+                />
                 <div
                   className={classNames(
-                    styles.trackPlayDislike,
-                    styles.btnIcon
+                    styles.playerTrackPlay,
+                    styles.trackPlay
                   )}
                 >
-                  <svg className={styles.trackPlayDislikeSvg}>
-                    <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-                  </svg>
+                  <div className={styles.trackPlayContain}>
+                    <div className={styles.trackPlayImage}>
+                      <svg className={styles.trackPlaySvg}>
+                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                      </svg>
+                    </div>
+                    <div className={styles.trackPlayAuthor}>
+                      <Link
+                        className={styles.trackPlayAuthorLink}
+                        href="http://"
+                      >
+                        {currentTrack.name}
+                      </Link>
+                    </div>
+                    <div className={styles.trackPlayAlbum}>
+                      <Link
+                        className={styles.trackPlayAlbumLink}
+                        href="http://"
+                      >
+                        {currentTrack.author}
+                      </Link>
+                    </div>
+                  </div>
+                  <div className={styles.trackPlayLikeDis}>
+                    <div
+                      className={classNames(
+                        styles.trackPlayLike,
+                        styles.btnIcon
+                      )}
+                    >
+                      <svg className={styles.trackPlayLikeSvg}>
+                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                      </svg>
+                    </div>
+                    <div
+                      className={classNames(
+                        styles.trackPlayDislike,
+                        styles.btnIcon
+                      )}
+                    >
+                      <svg className={styles.trackPlayDislikeSvg}>
+                        <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <Volume
+                min={0}
+                max={1}
+                step={0.01}
+                value={volume}
+                onChange={handleVolume}
+              />
             </div>
           </div>
-          <Volume
-            min={0}
-            max={1}
-            step={0.01}
-            value={volume}
-            onChange={handleVolume}
-          />
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
