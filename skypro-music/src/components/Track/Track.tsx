@@ -1,30 +1,40 @@
-"use client"
+"use client";
 
 import { durationFormat } from "@/utils";
 import styles from "./Track.module.css";
-import { useAppDispatch } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { trackType } from "@/type";
-import { setCurrentTrack } from "@/store/features/plailistSlice";
+import { setCurrentTrack, setIsPlaying} from "@/store/features/plailistSlice";
+import classNames from "classnames";
 
-type TrackType = {  
-  track: trackType,
-  tracksData: trackType[],
+type TrackType = {
+  track: trackType;
+  tracksData: trackType[];
 };
 
-export default function Track({track, tracksData} : TrackType ) {
-  const { name, author, album, duration_in_seconds } = track;
+export default function Track({ track, tracksData }: TrackType) {
+  const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
+  const isPlaying = useAppSelector((state) => state.playlist.isPlaying);
+  const { name, author, album, duration_in_seconds, id } = track;
+  const isCurrentTrack = currentTrack ? currentTrack.id === id : false;
   const dispatch = useAppDispatch();
-  const handleTraclClick = () => {
-    dispatch(setCurrentTrack({track, tracksData}));
-}
- 
+
+  const handleTracKlClick = () => {
+    dispatch(setCurrentTrack({ track, tracksData }));
+    dispatch(setIsPlaying(true));
+  };
+
   return (
-    <div  onClick={handleTraclClick} className={styles.playlistItem}>
+    <div onClick={handleTracKlClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
-            <svg className={styles.trackTitleSvg}>
-              <use xlinkHref="img/icon/sprite.svg#icon-note" />
+          <svg className={classNames(styles.trackTitleSvg, {
+                [styles.trackIconIsplaying]: isPlaying && isCurrentTrack,
+              })}>
+              <use xlinkHref={`img/icon/sprite.svg#${
+                  isCurrentTrack ? "icon-button" : "icon-note"
+                }`} />
             </svg>
           </div>
           <div className={styles.trackTitleText}>

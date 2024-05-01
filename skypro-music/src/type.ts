@@ -24,6 +24,7 @@ export type trackType = {
   logo: string | null;
   track_file: string;
   stared_user: userType[];
+  // onClick: () => void;
  
 };
 

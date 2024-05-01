@@ -8,12 +8,7 @@ type ProgressBarType = {
   step: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
-export default function ProgressBar({
-  max = 0,
-  value,
-  step,
-  onChange,
-}: ProgressBarType) {
+export default function ProgressBar({max = 0, value, step, onChange}: ProgressBarType) {
   return (
     <input
       className={styles.styledProgressInput} // Применение стилей к ползунку

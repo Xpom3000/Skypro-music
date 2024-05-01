@@ -2,18 +2,14 @@
 
 import classNames from "classnames";
 import styles from "./Player.module.css";
-import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { trackType } from "@/type";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
-import { useAppSelector } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { setNextTrack } from "@/store/features/plailistSlice";
 
-type PlayerType = {
-  track: trackType;
-};
 
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
@@ -23,6 +19,7 @@ export default function Player() {
   const [isLooping, setIsLooping] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0.5);
   const duration = audioRef.current?.duration || 0;
+  const dispatch = useAppDispatch();
 
   const handleVolume = (event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
@@ -30,6 +27,22 @@ export default function Player() {
       setVolume(audioRef.current.volume);
     }
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current?.play();
+    }
+  }, [isPlaying, currentTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    const handdleEnded = () => {
+      dispatch(setNextTrack());
+    };
+    audio?.addEventListener("ended", handdleEnded);
+    return () => audio?.removeEventListener("ended", handdleEnded);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, audioRef.current]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -52,6 +65,7 @@ export default function Player() {
       }
       setIsPlaying(!isPlaying);
     }
+    
   };
 
   const toggleLoop = () => {
@@ -108,12 +122,7 @@ export default function Player() {
                   toggleLoop={toggleLoop}
                   isLooping={isLooping}
                 />
-                <div
-                  className={classNames(
-                    styles.playerTrackPlay,
-                    styles.trackPlay
-                  )}
-                >
+                <div className={classNames(styles.playerTrackPlay, styles.trackPlay)}>
                   <div className={styles.trackPlayContain}>
                     <div className={styles.trackPlayImage}>
                       <svg className={styles.trackPlaySvg}>
@@ -121,39 +130,19 @@ export default function Player() {
                       </svg>
                     </div>
                     <div className={styles.trackPlayAuthor}>
-                      <Link
-                        className={styles.trackPlayAuthorLink}
-                        href="http://"
-                      >
-                        {currentTrack.name}
-                      </Link>
+                      <span className={styles.trackPlayAuthorLink}>{currentTrack.name}</span>
                     </div>
                     <div className={styles.trackPlayAlbum}>
-                      <Link
-                        className={styles.trackPlayAlbumLink}
-                        href="http://"
-                      >
-                        {currentTrack.author}
-                      </Link>
+                      <span className={styles.trackPlayAlbumLink}>{currentTrack.author}</span>
                     </div>
                   </div>
                   <div className={styles.trackPlayLikeDis}>
-                    <div
-                      className={classNames(
-                        styles.trackPlayLike,
-                        styles.btnIcon
-                      )}
-                    >
+                    <div className={classNames(styles.trackPlayLike, styles.btnIcon)}>
                       <svg className={styles.trackPlayLikeSvg}>
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
                       </svg>
                     </div>
-                    <div
-                      className={classNames(
-                        styles.trackPlayDislike,
-                        styles.btnIcon
-                      )}
-                    >
+                    <div className={classNames(styles.trackPlayDislike, styles.btnIcon)}>
                       <svg className={styles.trackPlayDislikeSvg}>
                         <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
                       </svg>

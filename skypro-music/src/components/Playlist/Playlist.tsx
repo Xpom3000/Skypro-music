@@ -27,8 +27,8 @@ export default async function Playlist() {
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
         {tracksData.map((track) => (
-          // eslint-disable-next-line react/jsx-key
           <Track
+            key={track.id}
             track={track}
             tracksData={tracksData } />
         ))}
