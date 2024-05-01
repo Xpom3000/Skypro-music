@@ -14,9 +14,12 @@ type TrackType = {
 export default function Track({track, tracksData} : TrackType ) {
   const { name, author, album, duration_in_seconds } = track;
   const dispatch = useAppDispatch();
+  const handleTraclClick = () => {
+    dispatch(setCurrentTrack({track, tracksData}));
+}
  
   return (
-    <div  onClick={() => dispatch(setCurrentTrack(track))} className={styles.playlistItem}>
+    <div  onClick={handleTraclClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
