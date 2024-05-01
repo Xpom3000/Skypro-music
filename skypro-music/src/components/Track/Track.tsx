@@ -1,16 +1,21 @@
 import { durationFormat } from "@/utils";
 import styles from "./Track.module.css";
 
-
 type TrackType = {
-  name: string,
-  author: string,
-  album: string,
-  onClick: () => void,
+  name: string;
+  author: string;
+  album: string;
   duration_in_seconds: number;
-}
+  onClick: () => void;
+};
 
-export default function Track({name, author, album, duration_in_seconds, onClick}: TrackType) {
+export default function Track({
+  name,
+  author,
+  album,
+  duration_in_seconds,
+  onClick,
+}: TrackType) {
   return (
     <div onClick={onClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
@@ -27,20 +32,18 @@ export default function Track({name, author, album, duration_in_seconds, onClick
           </div>
         </div>
         <div className={styles.trackAuthor}>
-          <span className={styles.trackAuthorLink} >
-            {author}
-          </span>
+          <span className={styles.trackAuthorLink}>{author}</span>
         </div>
         <div className={styles.trackAlbum}>
-          <span className={styles.trackAlbumLink} >
-           {album}
-          </span>
+          <span className={styles.trackAlbumLink}>{album}</span>
         </div>
         <div className={styles.trackTime}>
           <svg className={styles.trackTimeSvg}>
             <use xlinkHref="img/icon/sprite.svg#icon-like" />
           </svg>
-          <span className={styles.trackTimeText}>{durationFormat(duration_in_seconds)}</span>
+          <span className={styles.trackTimeText}>
+            {durationFormat(duration_in_seconds)}
+          </span>
         </div>
       </div>
     </div>

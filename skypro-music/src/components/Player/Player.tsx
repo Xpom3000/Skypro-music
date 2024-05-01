@@ -9,6 +9,7 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
+import { useAppSelector } from "@/store/hooks";
 
 
 type PlayerType = {
@@ -16,12 +17,13 @@ type PlayerType = {
 };
 
 export default function Player({ track }: PlayerType) {
+  const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isLooping, setIsLooping] = useState<boolean>(false);
-  const duration = audioRef.current?.duration || 0;
   const [volume, setVolume] = useState<number>(0.5);
+  const duration = audioRef.current?.duration || 0;
 
   const handleVolume = (event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
