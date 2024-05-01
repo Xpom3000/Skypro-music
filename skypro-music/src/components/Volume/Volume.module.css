@@ -8,7 +8,6 @@
   align-items: center;
   padding: 0 92px 0 0;
 }
-
 .volumeContent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,8 +21,7 @@
   align-items: center;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
-  /* justify-content: end; */
-  flex: end;
+  justify-content: end;
 }
 
 .volumeImage {
@@ -42,18 +40,81 @@
   width: 109px;
 }
 
-.volume__progress-line {
+.volumeProgressLine {
   width: 109px;
 }
 
 .btn {
   cursor: pointer;
- }
+}
 
 @media (max-width: 1024px) {
   .barVolumeBlock {
     padding-left: calc(50% - 393px);
     padding-right: calc(50% - 393px);
-  }
-  
+  } 
 }
+
+.volumeProgressLine {
+  --progress-height: 5px;
+  --progress-color: #b672ff;
+  --progress-bg-color: #2e2e2e;
+
+  margin: 0;
+  width: 100%;
+  height: var(--progress-height);
+  appearance: none;
+  cursor: pointer;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.volumeProgressLine:hover {
+  --progress-height: 8px;
+}
+
+.volumeProgressLine::-webkit-slider-runnable-track {
+  position: relative;
+  height: var(--progress-height);
+  background: var(--progress-bg-color);
+}
+
+.volumeProgressLine::-webkit-slider-thumb {
+  --thumb-height: 1px;
+  --thumb-width: 1px;
+  position: relative;
+  -webkit-appearance: none;
+  width: var(--thumb-width, var(--thumb-height));
+  box-shadow: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0
+    100vmax var(--progress-color);
+}
+
+.volumeProgressLine::-webkit-slider-runnable-track {
+  background: var(--progress-bg-color);
+}
+
+/* FF */
+.volumeProgressLine::-moz-range-track {
+  width: 100%;
+  height: var(--progress-height);
+  background: var(--progress-bg-color);
+  border: none;
+  border-radius: 0px;
+}
+
+.volumeProgressLine::-moz-range-thumb {
+  border: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.volumeProgressLine::-moz-range-progress {
+  background-color: var(--progress-color);
+  height: var(--progress-height);
+}
+
+

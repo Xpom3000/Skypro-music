@@ -28,28 +28,8 @@ export default function Home() {
           </div>
           <Sidebar />
         </main>
-        {/* <div className={styles.bar}>
-          <div className={styles.barContent}>
-            <div className={styles.barPlayerProgress} />
-            <div className={styles.barPlayerBlock}> */}
-
-        {/* </div>
-          </div>
-        </div> */}
-        {track && (
-          <footer className={styles.footer}>
-            <Player track={track} />
-            <Volume
-              min={0}
-              max={0}
-              step={0}
-              value={0}
-              onChange={function (e: ChangeEvent<HTMLInputElement>): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-          </footer>
-        )}
+        {track && <Player track={track} />}
+        <footer className={styles.footer}/>
       </div>
     </div>
   );

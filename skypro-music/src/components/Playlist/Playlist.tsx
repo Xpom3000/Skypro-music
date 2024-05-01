@@ -63,23 +63,17 @@ export default function Playlist({ setTrack }: PlaylistType) {
             name={trackData.name}
             author={trackData.author}
             album={trackData.album}
-            // id={0}
-            // release_date={""}
-            // genre={""}
-            // duration_in_seconds={0}
-            // logo={null}
-            // track_file={""}
-            // stared_user={[]}
+            duration_in_seconds={trackData.duration_in_seconds}
           />
         ))}
 
-        <Volume
+        {/* <Volume
           min={0}
           max={1}
           step={0.01}
           value={volume}
           onChange={handleVolume}
-        />
+        /> */}
       </div>
     </div>
   );

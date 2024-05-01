@@ -18,15 +18,6 @@ export default function Volume( {
   value,
   onChange,
 }: VolumeType) {
-  const [volume, setVolume] = useState<number>(0.5);
-  const audioRef = useRef<null | HTMLAudioElement>(null);
-
-  const handleVolume = (event: ChangeEvent<HTMLInputElement>) => {
-    if (audioRef.current) {
-      audioRef.current.volume = Number(event.target.value);
-      setVolume(audioRef.current.volume);
-    }
-  };
   return (
     <div className={styles.barVolumeBlock}>
       <div className={styles.volumeContent}>
