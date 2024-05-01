@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./page.module.css";
 import Navigation from "@/components/Navigation/Navigation";
 import Sidebar from "@/components/Sidebar/Sidebar";
@@ -7,7 +5,6 @@ import Player from "@/components/Player/Player";
 import Search from "@/components/Search/Search";
 import Filters from "@/components/Filters/Filters";
 import Playlist from "@/components/Playlist/Playlist";
-
 
 export default function Home() {
     return (

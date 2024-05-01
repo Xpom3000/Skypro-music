@@ -3,28 +3,15 @@ import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
 import { getTracks } from "@/store/tracks";
 import { trackType } from "@/type";
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "@/store/hooks";
-import { setCurrentTrack } from "@/store/features/plailistSlice";
 
 
-export default function Playlist() {
-  // let tracksData: trackType[];
-  // try {
-  //   tracksData = await getTracks();
-  // } catch (error: any) {
-  //   throw new Error(error.message);
-  // }
-  const dispatch = useAppDispatch();
-  const [tracksData, setTracksData] = useState<trackType[]>([]);
-  // const audioRef = useRef<null | HTMLAudioElement>(null);
-  useEffect(() => {
-    getTracks()
-      .then((data: trackType[]) => setTracksData(data))
-      .catch((error: any) => {
-        throw new Error(error.message);
-      });
-  }, []);
+export default async function Playlist() {
+  let tracksData: trackType[];
+  try {
+    tracksData = await getTracks();
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 
   return (
     <div className={classNames(styles.centerblockContent, styles.playlistContent)}>
@@ -39,15 +26,11 @@ export default function Playlist() {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-        {tracksData.map((trackData) => (
+        {tracksData.map((track) => (
+          // eslint-disable-next-line react/jsx-key
           <Track
-            onClick={() => dispatch(setCurrentTrack(trackData))}
-            key={trackData.id}
-            name={trackData.name}
-            author={trackData.author}
-            album={trackData.album}
-            duration_in_seconds={trackData.duration_in_seconds}
-          />
+            track={track}
+            tracksData={tracksData } />
         ))}
       </div>
     </div>
