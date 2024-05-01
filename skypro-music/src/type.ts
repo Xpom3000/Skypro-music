@@ -30,4 +30,5 @@ export type trackType = {
 export type ErrorType = {
   error: Error;
   reset: () => void;
+
 }

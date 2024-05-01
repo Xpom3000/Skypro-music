@@ -22,24 +22,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 890px;
+  height: 590px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
-  /* scrollbar-color: #5e328f black; */
+  scrollbar-color: #39774c black;
 }
 
-.contentPlaylist::-webkit-scrollbar {
-  width: 15px; /* Ширина всего элемента навигации */
-}
-
-.contentPlaylist::-webkit-scrollbar-thumb{
-  background: linear-gradient(45deg, #a14ed8, #acb4c5);
-  border-radius: 20px;
-  border: 3px solid #050c26;
-}
+/* .playlist {
+} */
 
 .playlistTitleCol {
   font-style: normal;
