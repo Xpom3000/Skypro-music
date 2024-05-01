@@ -28,6 +28,7 @@ export type trackType = {
 };
 
 export type ErrorType = {
-  error: string, //узнать правда ли этот тип или другой
-  reset: any  , //узнать правда ли этот тип или другой
+  error: Error;
+  reset: () => void;
+
 }
