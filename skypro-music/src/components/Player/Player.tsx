@@ -8,14 +8,14 @@ import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { setNextTrack } from "@/store/features/plailistSlice";
+import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
 
 
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
+  const isPlaying = useAppSelector((state) => state.playlist.isPlaying)
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isLooping, setIsLooping] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0.5);
   const duration = audioRef.current?.duration || 0;
@@ -47,11 +47,8 @@ export default function Player() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      audioRef.current.play();
-      setIsPlaying(true);
     }
     audioRef.current?.addEventListener("ended", () => {
-      setIsPlaying(false);
       setCurrentTime(0);
     });
   }, [volume, duration]);
@@ -60,8 +57,10 @@ export default function Player() {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        dispatch(setIsPlaying(false));
       } else {
         audioRef.current.play();
+        dispatch(setIsPlaying(true));
       }
       setIsPlaying(!isPlaying);
     }

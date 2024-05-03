@@ -30,10 +30,10 @@ export default function Track({ track, tracksData }: TrackType) {
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
           <svg className={classNames(styles.trackTitleSvg, {
-                [styles.trackIconIsplaying]: isPlaying && isCurrentTrack,
+               [styles.trackIconIsplaying]: isPlaying && isCurrentTrack
               })}>
               <use xlinkHref={`img/icon/sprite.svg#${
-                  isCurrentTrack ? "icon-button" : "icon-note"
+                  isCurrentTrack ? "icon-isplaying" : "icon-note"
                 }`} />
             </svg>
           </div>

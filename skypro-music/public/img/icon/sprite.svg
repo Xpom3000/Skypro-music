@@ -16,7 +16,7 @@
         <ellipse cx="4.5" cy="16" rx="3.5" ry="2" stroke="#4E4E4E"/>
         <ellipse cx="15.5" cy="13" rx="3.5" ry="2" stroke="#4E4E4E"/>
     </symbol>
-    <symbol id="icon-button" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="icon-isplaying" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path id="Rectangle 3776" d="M8 0C12.41 0 16 3.58 16 8C16 12.41 12.41 16 8 16C3.58 16 0 12.41 0 8C0 3.58 3.58 0 8 0Z" fill="#B672FF" fill-opacity="1.000000" fill-rule="nonzero"/>
     </symbol>
 

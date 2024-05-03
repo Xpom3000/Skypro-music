@@ -1,6 +1,6 @@
 import styles from "./PlayerControls.module.css";
 import classNames from "classnames";
-import { setCurrentTrack, setNextTrack, setPreviousTrack, setIsShuffle, setIsPlaying } from "@/store/features/plailistSlice";
+import { setNextTrack, setPreviousTrack, setIsShuffle, setIsPlaying } from "@/store/features/plailistSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 
