@@ -25,20 +25,18 @@
 }
 
 /*Всплывающее поиск*/
-
 .navMenu {
+  position: relative;
   display: block;
   visibility: visible;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  margin-top: 50px;
 }
 
 .menuList {
   position: absolute;
-  /* top: 45px; */
+  top: 35px;
   padding: 18px 0 10px 0;
   height: 273px;
   overflow-y: auto;
