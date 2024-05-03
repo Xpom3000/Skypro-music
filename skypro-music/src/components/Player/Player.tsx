@@ -15,7 +15,7 @@ export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isLooping, setIsLooping] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0.5);
   const duration = audioRef.current?.duration || 0;
