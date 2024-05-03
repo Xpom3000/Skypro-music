@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
-import { getTracks } from "@/store/tracks";
+import { getTracks } from "@/tracks";
 import { trackType } from "@/type";
-
 
 export default async function Playlist() {
   let tracksData: trackType[];
@@ -12,7 +11,6 @@ export default async function Playlist() {
   } catch (error: any) {
     throw new Error(error.message);
   }
-
   return (
     <div className={classNames(styles.centerblockContent, styles.playlistContent)}>
       <div className={classNames(styles.contentTitle, styles.playlistTtitle)}>

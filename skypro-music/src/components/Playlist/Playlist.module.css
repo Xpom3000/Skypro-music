@@ -28,7 +28,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
-  /* scrollbar-color: #5e328f black; */
+  scrollbar-color: #39774c black;
 }
 
 .contentPlaylist::-webkit-scrollbar {

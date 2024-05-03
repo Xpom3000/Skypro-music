@@ -2,7 +2,6 @@
   width: 100%;
   border-bottom: 1px solid #4e4e4e;
   margin-bottom: 51px;
-  margin-top: 23px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +12,6 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-
 }
 
 .searchSvg {
@@ -37,7 +35,6 @@
   line-height: 24px;
   color: #ffffff;
   outline: none;
-
 }
 
 .searchTtext::-webkit-input-placeholder {

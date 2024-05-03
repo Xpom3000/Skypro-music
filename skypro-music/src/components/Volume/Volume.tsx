@@ -1,23 +1,7 @@
 import classNames from "classnames";
 import styles from "./Volume.module.css";
-import { ChangeEvent, useRef, useState } from "react";
 
-
-export type VolumeType = {
-  min: number;
-  max: number;
-  step: number;
-  value: number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export default function Volume( {
-  min,
-  max,
-  step,
-  value,
-  onChange,
-}: VolumeType) {
+export default function Volume() {
   return (
     <div className={styles.barVolumeBlock}>
       <div className={styles.volumeContent}>
@@ -27,15 +11,10 @@ export default function Volume( {
           </svg>
         </div>
         <div className={classNames(styles.volumeProgress, styles.btn)}>
-        <input
+          <input
             className={classNames(styles.volumeProgressLine, styles.btn)}
             type="range"
             name="range"
-            min={min}
-            max={max}
-            step={step}
-            value={value}
-            onChange={onChange}
           />
         </div>
       </div>

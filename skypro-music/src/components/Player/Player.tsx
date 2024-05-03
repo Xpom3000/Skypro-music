@@ -1,5 +1,6 @@
-"use client";
-
+import classNames from "classnames"
+import styles from "./Player.module.css"
+import Link from "next/link"
 import classNames from "classnames";
 import styles from "./Player.module.css";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -163,3 +164,4 @@ export default function Player() {
     </>
   );
 }
+

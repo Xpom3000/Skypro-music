@@ -23,7 +23,6 @@ export default function Track({ track, tracksData }: TrackType) {
     dispatch(setCurrentTrack({ track, tracksData }));
     dispatch(setIsPlaying(true));
   };
-
   return (
     <div onClick={handleTracKlClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
@@ -38,8 +37,9 @@ export default function Track({ track, tracksData }: TrackType) {
             </svg>
           </div>
           <div className={styles.trackTitleText}>
-            <span className={styles.trackTitleLink}>
-              {name} <span className={styles.trackTitleSpan} />
+            <span className={styles.trackTitleLink} >
+              {name}
+              <span className={styles.trackTitleSpan} />
             </span>
           </div>
         </div>
