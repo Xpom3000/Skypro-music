@@ -32,7 +32,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-
+}
 .menuList {
   position: absolute;
   top: 35px;
@@ -57,6 +57,7 @@
   background: linear-gradient(45deg, #a14ed8, #bf97db);
   border-radius: 20px;
   border: 3px solid #050c26;
+}
 
 .menuItem {
   position: static;

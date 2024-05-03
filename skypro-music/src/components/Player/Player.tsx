@@ -1,6 +1,5 @@
-import classNames from "classnames"
-import styles from "./Player.module.css"
-import Link from "next/link"
+"use client";
+
 import classNames from "classnames";
 import styles from "./Player.module.css";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -11,10 +10,9 @@ import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
 
-
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
-  const isPlaying = useAppSelector((state) => state.playlist.isPlaying)
+  const isPlaying = useAppSelector((state) => state.playlist.isPlaying);
   const audioRef = useRef<null | HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [isLooping, setIsLooping] = useState<boolean>(false);
@@ -65,7 +63,6 @@ export default function Player() {
       }
       setIsPlaying(!isPlaying);
     }
-    
   };
 
   const toggleLoop = () => {
@@ -95,7 +92,7 @@ export default function Player() {
   };
   return (
     <>
-      { currentTrack && (
+      {currentTrack && (
         <div className={styles.bar}>
           <div className={styles.barContent}>
             <audio
@@ -122,7 +119,12 @@ export default function Player() {
                   toggleLoop={toggleLoop}
                   isLooping={isLooping}
                 />
-                <div className={classNames(styles.playerTrackPlay, styles.trackPlay)}>
+                <div
+                  className={classNames(
+                    styles.playerTrackPlay,
+                    styles.trackPlay
+                  )}
+                >
                   <div className={styles.trackPlayContain}>
                     <div className={styles.trackPlayImage}>
                       <svg className={styles.trackPlaySvg}>
@@ -130,19 +132,33 @@ export default function Player() {
                       </svg>
                     </div>
                     <div className={styles.trackPlayAuthor}>
-                      <span className={styles.trackPlayAuthorLink}>{currentTrack.name}</span>
+                      <span className={styles.trackPlayAuthorLink}>
+                        {currentTrack.name}
+                      </span>
                     </div>
                     <div className={styles.trackPlayAlbum}>
-                      <span className={styles.trackPlayAlbumLink}>{currentTrack.author}</span>
+                      <span className={styles.trackPlayAlbumLink}>
+                        {currentTrack.author}
+                      </span>
                     </div>
                   </div>
                   <div className={styles.trackPlayLikeDis}>
-                    <div className={classNames(styles.trackPlayLike, styles.btnIcon)}>
+                    <div
+                      className={classNames(
+                        styles.trackPlayLike,
+                        styles.btnIcon
+                      )}
+                    >
                       <svg className={styles.trackPlayLikeSvg}>
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
                       </svg>
                     </div>
-                    <div className={classNames(styles.trackPlayDislike, styles.btnIcon)}>
+                    <div
+                      className={classNames(
+                        styles.trackPlayDislike,
+                        styles.btnIcon
+                      )}
+                    >
                       <svg className={styles.trackPlayDislikeSvg}>
                         <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
                       </svg>
@@ -164,4 +180,3 @@ export default function Player() {
     </>
   );
 }
-
