@@ -46,8 +46,11 @@ export default function Player() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
+      // audioRef.current.play();
+      // setIsPlaying(true);
     }
     audioRef.current?.addEventListener("ended", () => {
+      // setIsPlaying(false);
       setCurrentTime(0);
     });
   }, [volume, duration]);
@@ -61,7 +64,8 @@ export default function Player() {
         audioRef.current.play();
         dispatch(setIsPlaying(true));
       }
-      setIsPlaying(!isPlaying);
+      // setIsPlaying(!isPlaying);
+      
     }
   };
 

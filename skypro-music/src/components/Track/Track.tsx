@@ -23,23 +23,23 @@ export default function Track({ track, tracksData }: TrackType) {
     dispatch(setCurrentTrack({ track, tracksData }));
     dispatch(setIsPlaying(true));
   };
+
   return (
     <div onClick={handleTracKlClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
           <svg className={classNames(styles.trackTitleSvg, {
-               [styles.trackIconIsplaying]: isPlaying && isCurrentTrack
+                [styles.trackIconIsplaying]: isPlaying && isCurrentTrack,
               })}>
               <use xlinkHref={`img/icon/sprite.svg#${
-                  isCurrentTrack ? "icon-isplaying" : "icon-note"
+                 isCurrentTrack ? "icon-isplaying" : "icon-note"
                 }`} />
             </svg>
           </div>
           <div className={styles.trackTitleText}>
-            <span className={styles.trackTitleLink} >
-              {name}
-              <span className={styles.trackTitleSpan} />
+            <span className={styles.trackTitleLink}>
+              {name} <span className={styles.trackTitleSpan} />
             </span>
           </div>
         </div>

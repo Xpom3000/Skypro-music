@@ -42,7 +42,8 @@ export default function PlayerControls({
 
   return (
     <div className={styles.playerControls}>
-      <div onClick={HandlePreviousTrack} className={classNames(styles.playerBtnPrev, styles.btnIcon)}>
+      <div onClick={HandlePreviousTrack}
+        className={classNames(styles.playerBtnPrev, styles.btnIcon)}>
         <svg className={styles.playerBtnPrevSvg}>
           <use xlinkHref="img/icon/sprite.svg#icon-prev" />
         </svg>

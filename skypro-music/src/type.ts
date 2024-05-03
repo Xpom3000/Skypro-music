@@ -6,7 +6,6 @@ type userType = {
   email: string;
 };
 
-
 export type FilterItemType = {
   title: string;
   list: string[];
@@ -33,4 +32,3 @@ export type ErrorType = {
   error: Error;
   reset: () => void;
 };
-

@@ -1,3 +1,8 @@
+/* .wrapper {
+  position: relative;
+ 
+} */
+
 .filterButton {
   font-style: normal;
   font-weight: 400;
@@ -25,6 +30,7 @@
 }
 
 /*Всплывающее поиск*/
+
 .navMenu {
   position:relative;
   display: block;
@@ -32,14 +38,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  
 }
+
 .menuList {
   position: absolute;
   top: 35px;
   padding: 18px 0 10px 0;
   height: 273px;
   overflow-y: auto;
-  background: rgb(49, 49, 49); 
+   background: rgb(49, 49, 49); 
   width: 248px;
   display: flex;
   flex-direction: column;
@@ -76,13 +84,13 @@
   font-weight: 400;
   letter-spacing: 0.1%;
   text-align: left;
+  text-decoration-line: underline;
 }
 .activeMenuItem{
   letter-spacing: 0%;
   text-align: left;
-  text-decoration-line: underline;
+  /* text-decoration-line:underline;  */
 }
-
 .menuLink {
   color: #ffffff;
   font-weight: 400;
