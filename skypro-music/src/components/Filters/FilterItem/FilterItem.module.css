@@ -1,3 +1,8 @@
+/* .wrapper {
+  position: relative;
+ 
+} */
+
 .filterButton {
   font-style: normal;
   font-weight: 400;
@@ -25,13 +30,15 @@
 }
 
 /*Всплывающее поиск*/
+
 .navMenu {
-  position: relative;
+  position:relative;
   display: block;
   visibility: visible;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  
 }
 
 .menuList {
@@ -40,10 +47,7 @@
   padding: 18px 0 10px 0;
   height: 273px;
   overflow-y: auto;
-  position: absolute;
-  scrollbar-color: #39774c black;
-  border-radius: 12px;
-  background: rgb(49, 49, 49);
+   background: rgb(49, 49, 49); 
   width: 248px;
   display: flex;
   flex-direction: column;
@@ -54,7 +58,13 @@
 }
 
 .menuList::-webkit-scrollbar {
-  width: 15px; /* Ширина всего элемента навигации */
+  width: 12px; /* Ширина всего элемента навигации */
+}
+
+.menuList::-webkit-scrollbar-thumb{
+  background: linear-gradient(45deg, #a14ed8, #bf97db);
+  border-radius: 20px;
+  border: 3px solid #050c26;
 }
 
 .menuItem {
@@ -74,13 +84,13 @@
   font-weight: 400;
   letter-spacing: 0.1%;
   text-align: left;
+  text-decoration-line: underline;
 }
 .activeMenuItem{
   letter-spacing: 0%;
   text-align: left;
-  text-decoration-line: underline;
+  /* text-decoration-line:underline;  */
 }
-
 .menuLink {
   color: #ffffff;
   font-weight: 400;
