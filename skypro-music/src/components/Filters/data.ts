@@ -1,14 +1,21 @@
-export const filters = [
+type Filterstype = {
+  title: string;
+  value: "author" | "genre" | "order";
+}
+
+export const filters: Filterstype[] = [
     {
       title: "Исполнитель",
-      list: ["Michael Jackson", "Frank Sinatra", "Calvin Harris", "Zhu", "Arctic Monkeys"],
+      value: "author"
     },
     {
       title: "Год выпуска",
-      list: ["По умолчанию", "Сначала новые", "Сначала старые"],
+      value: "order",
     },
     {
       title: "Жанр",
-      list: ["Рок", "Хип-хоп", "Поп-музыка", "Техно", "Инди"],
+      value: "genre"
     },
-  ];
+];
+  
+export const order = [ "По умолчанию", "Сначало новые", "Сначало старые"]

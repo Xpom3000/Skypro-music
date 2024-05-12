@@ -1,14 +1,7 @@
 import classNames from "classnames";
 import styles from "./Volume.module.css";
-import { ChangeEvent } from "react";
+import { VolumeType } from "@/type";
 
-export type VolumeType = {
-  min: number;
-  max: number;
-  step: number;
-  value: number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-};
 
 export default function Volume({
   min,
