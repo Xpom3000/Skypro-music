@@ -12,27 +12,42 @@ export default function FilterItem({
   isOpened,
   tracksData,
 }: FilterItemType) {
+  const playlist = useAppSelector((state) => state.playlist.initialTracks);
   const authorsList = useAppSelector(
     (state) => state.playlist.filterOption.author
+  );
+  const genreList = useAppSelector(
+    (state) => state.playlist.filterOption.genre
   );
   const dispatch = useAppDispatch();
   const getFilterList = () => {
     if (value !== "order") {
-      const array = new Set(
-        tracksData?.map((track: trackType) => track[value]) || []
+      const filtrsSet = new Set(
+        playlist?.map((track: trackType) => track[value]) || []
       );
-      return Array.from(array);
+      return Array.from(filtrsSet);
     }
     return order;
   };
-  const togglerFilter = (item: string) => {
-    dispatch(
-      setFilters({
-        author: authorsList.includes(item)
-          ? authorsList.filter((el) => el !== item) 
-          : [...authorsList, item],
-      })
-    );
+  const togglerFilter = ( item: string) => {
+    if (value === "author") {
+      dispatch(
+        setFilters({
+          author: authorsList.includes(item)
+            ? authorsList.filter((el) => el !== item) 
+            : [...authorsList, item],
+        })
+      );
+    } else{
+      dispatch(
+        setFilters({
+          author: genreList.includes(item)
+            ? genreList.filter((el) => el !== item) 
+            : [...genreList, item],
+        })
+      );
+    }
+    
   };
   // getFilterList();
   return (

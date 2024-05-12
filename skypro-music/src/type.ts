@@ -33,6 +33,7 @@ export type trackType = {
 };
 
 export type PlaylistStateType = {
+  // defaultPlaylist: trackType[];
   currentTrack: null | trackType;
   playlist: trackType[];
   shuffledPlaylist: trackType[];

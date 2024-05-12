@@ -2,6 +2,7 @@ import { PlaylistStateType, trackType } from "@/type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: PlaylistStateType = {
+  // defaultPlaylist: [],
   currentTrack: null,
   playlist: [],
   shuffledPlaylist: [],
@@ -21,6 +22,10 @@ const playlistSlice = createSlice({
   name: "playlist",
   initialState,
   reducers: {
+    // setDefaultPlaylist: (state, action: PayloadAction<trackType[]>) => {
+    //   state.defaultPlaylist = action.payload;
+    //   state.filtedTracks = action.payload;
+    // },
     setInitialTracks: (
       state,
       action: PayloadAction<{ initialTracks: trackType[] }>
@@ -89,8 +94,7 @@ const playlistSlice = createSlice({
         author: action.payload.author || state.filterOption.author,
         genre: action.payload.genre || state.filterOption.genre,
         yaer: action.payload.yaer || state.filterOption.yaer,
-        searchValue:
-          action.payload.searchValue || state.filterOption.searchValue,
+        searchValue: action.payload.searchValue || state.filterOption.searchValue,
 
         // author: action.payload.author || action.payload.author,
         // genre: action.payload.genre || action.payload.genre,
@@ -102,16 +106,26 @@ const playlistSlice = createSlice({
         const isAuthors = hasAuthors
           ? state.filterOption.author.includes(track.author)
           : true;
+        const hasGenres = state.filterOption.genre.length !== 0;
+        const isGenres = hasGenres
+          ? state.filterOption.genre.includes(track.genre)
+          : true;
         const hasSearchValue = track.name
           .toLowerCase()
           .includes(state.filterOption.searchValue.toLowerCase());
-        return isAuthors && hasSearchValue;
+        if (isAuthors) {
+          return isAuthors && hasSearchValue;
+        } else {
+          return isGenres && hasSearchValue;
+        }
+        
       });
     },
   },
 });
 
 export const {
+  // setDefaultPlaylist,
   setInitialTracks,
   setCurrentTrack,
   setNextTrack,

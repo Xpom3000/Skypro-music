@@ -16,8 +16,8 @@ export default function Playlist() {
 
   useEffect(() => {
     getTracks().then((tracksData) => {
-      setTracks(tracksData);
       dispatch(setInitialTracks({ initialTracks: tracks }));
+      setTracks(tracksData);
     });
     
   }, [dispatch, tracks])
