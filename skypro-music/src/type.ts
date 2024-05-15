@@ -28,12 +28,10 @@ export type trackType = {
   logo: string | null;
   track_file: string;
   stared_user: userType[];
-  // onClick: () => void;
  
 };
 
 export type PlaylistStateType = {
-  // defaultPlaylist: trackType[];
   currentTrack: null | trackType;
   playlist: trackType[];
   shuffledPlaylist: trackType[];
@@ -41,11 +39,11 @@ export type PlaylistStateType = {
   isPlaying: boolean;
   filterOption: {
     author: string[];
+    // yaer: string[];
     genre: string[];
-    yaer: string[];
     searchValue: string;
   };
-  filtedTracks: trackType[];
+  filteredTracks: trackType[];
   initialTracks: trackType[];
 };
 

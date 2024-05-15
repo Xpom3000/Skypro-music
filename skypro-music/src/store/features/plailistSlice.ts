@@ -11,10 +11,10 @@ const initialState: PlaylistStateType = {
   filterOption: {
     author: [],
     genre: [],
-    yaer: [],
+    // yaer: [],
     searchValue: "",
   },
-  filtedTracks: [],
+  filteredTracks: [],
   initialTracks: [],
 };
 
@@ -31,7 +31,7 @@ const playlistSlice = createSlice({
       action: PayloadAction<{ initialTracks: trackType[] }>
     ) => {
       state.initialTracks = action.payload.initialTracks;
-      state.filtedTracks = action.payload.initialTracks;
+      // state.filteredTracks = action.payload.initialTracks;
     },
     setCurrentTrack: (
       state,
@@ -86,22 +86,17 @@ const playlistSlice = createSlice({
       action: PayloadAction<{
         author?: string[];
         genre?: string[];
-        yaer?: string[];
+        // yaer?: string[];
         searchValue?: string;
       }>
     ) => {
       state.filterOption = {
         author: action.payload.author || state.filterOption.author,
         genre: action.payload.genre || state.filterOption.genre,
-        yaer: action.payload.yaer || state.filterOption.yaer,
-        searchValue: action.payload.searchValue || state.filterOption.searchValue,
-
-        // author: action.payload.author || action.payload.author,
-        // genre: action.payload.genre || action.payload.genre,
-        // yaer: action.payload.yaer || action.payload.yaer,
-        // searchValue: action.payload.searchValue || action.payload.searchValue,
+        searchValue:
+          action.payload.searchValue || state.filterOption.searchValue,
       };
-      state.filtedTracks = state.initialTracks.filter((track) => {
+      state.filteredTracks = state.initialTracks.filter((track) => {
         const hasAuthors = state.filterOption.author.length !== 0;
         const isAuthors = hasAuthors
           ? state.filterOption.author.includes(track.author)
@@ -113,19 +108,13 @@ const playlistSlice = createSlice({
         const hasSearchValue = track.name
           .toLowerCase()
           .includes(state.filterOption.searchValue.toLowerCase());
-        if (isAuthors) {
-          return isAuthors && hasSearchValue;
-        } else {
-          return isGenres && hasSearchValue;
-        }
-        
+        return isAuthors || (isGenres && hasSearchValue);
       });
     },
   },
 });
 
 export const {
-  // setDefaultPlaylist,
   setInitialTracks,
   setCurrentTrack,
   setNextTrack,

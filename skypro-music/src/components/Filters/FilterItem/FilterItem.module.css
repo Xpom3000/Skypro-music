@@ -1,7 +1,7 @@
-/* .wrapper {
+.titleFilterBox {
+  display: flex;
   position: relative;
- 
-} */
+}
 
 .filterButton {
   font-style: normal;
@@ -11,6 +11,7 @@
   border: 1px solid #ffffff;
   border-radius: 60px;
   padding: 6px 20px;
+  margin-right: 10px;
 }
 
 .filterButton:not(:last-child) {
@@ -32,26 +33,27 @@
 /*Всплывающее поиск*/
 
 .navMenu {
-  position:relative;
-  display: block;
-  visibility: visible;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  
+  /* width: 248px; */
+  width: auto;
+  height: auto;
+  padding: 34px;
+  margin-top: 12px;
+  margin-left: 0;
+  border-radius: 12px;
+  opacity: 0px;
+  background: #313131;
+  position: absolute;
+  cursor: default;
 }
 
 .menuList {
-  position: absolute;
-  top: 35px;
-  padding: 18px 0 10px 0;
-  height: 273px;
-  overflow-y: auto;
-   background: rgb(49, 49, 49); 
-  width: 248px;
+  width: auto;
+  max-height: 237px;
   display: flex;
   flex-direction: column;
-  padding: revert;
+  gap: 24px;
+  opacity: 0px;
+  overflow: auto;
 }
 .menuList:checked {
   color: #ad61ff;
@@ -61,7 +63,7 @@
   width: 12px; /* Ширина всего элемента навигации */
 }
 
-.menuList::-webkit-scrollbar-thumb{
+.menuList::-webkit-scrollbar-thumb {
   background: linear-gradient(45deg, #a14ed8, #bf97db);
   border-radius: 20px;
   border: 3px solid #050c26;
@@ -69,7 +71,6 @@
 
 .menuItem {
   position: static;
-  margin: 28px 0px;
 }
 .menuItem:hover {
   border-color: #d9b6ff;
@@ -86,14 +87,31 @@
   text-align: left;
   text-decoration-line: underline;
 }
-.activeMenuItem{
+.activeMenuItem {
   letter-spacing: 0%;
   text-align: left;
-  /* text-decoration-line:underline;  */
+  text-decoration-line: underline;
+  color: #b672ff;
 }
 .menuLink {
   color: #ffffff;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+}
+
+.filterNumber {
+  position: absolute;
+  right: 0px;
+  bottom: 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  background: #ad61ff;
+  font-family: "Montserrat";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: center;
+  padding: 6px;
 }

@@ -10,17 +10,16 @@ import { useEffect, useState } from "react";
 export default function Playlist() {
   const dispatch = useAppDispatch();
   const [tracks, setTracks] = useState<trackType[]>([]);
-  const filterTracks = useAppSelector((state) => state.playlist.filtedTracks);
-
-  let tracksData: trackType[];
+  const filteredTracks = useAppSelector((state) => state.playlist.filteredTracks);
 
   useEffect(() => {
     getTracks().then((tracksData) => {
-      dispatch(setInitialTracks({ initialTracks: tracks }));
       setTracks(tracksData);
+      dispatch(setInitialTracks({ initialTracks: tracksData }));
+      
     });
     
-  }, [dispatch, tracks])
+  }, [dispatch])
 
   return (
     <div
@@ -43,8 +42,8 @@ export default function Playlist() {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-        {filterTracks.map((track) => (
-          <Track key={track.id} track={track} tracksData={tracksData} />
+        {filteredTracks.map((track) => (
+          <Track key={track.id} track={track} tracksData={tracks} />
         ))}
       </div>
     </div>
