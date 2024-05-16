@@ -11,7 +11,6 @@ export default function FilterItem({
   title,
   value,
   isOpened,
-  tracksData,
 }: FilterItemType) {
   const [filterNumber, SetFilterNumber] = useState<number>(0);
   const playlist = useAppSelector((state) => state.playlist.initialTracks);
@@ -46,33 +45,6 @@ export default function FilterItem({
       })
     );
 
-    // if (value === "author") {
-    //   dispatch(
-    //     setFilters({
-    //       author: authorsList.includes(item)
-    //         ? authorsList.filter((el) => el !== item)
-    //         : [...authorsList, item],
-    //     })
-    //   );
-    // }
-    // if (value === "genre") {
-    //   dispatch(
-    //     setFilters({
-    //       genre: genreList.includes(item)
-    //         ? genreList.filter((el) => el !== item)
-    //         : [...genreList, item],
-    //     })
-    //   );
-    // }
-    // if (value === "order") {
-    //   dispatch(
-    //     setFilters({
-    //       yaer: orderList.includes(item)
-    //         ? orderList.filter((el) => el !== item)
-    //         : [...orderList, item],
-    //     })
-    //   );
-    // }
   };
   useEffect(() => {
     SetFilterNumber(authorsList.length || genreList.length);

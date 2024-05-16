@@ -11,7 +11,7 @@ const initialState: PlaylistStateType = {
   filterOption: {
     author: [],
     genre: [],
-    // yaer: [],
+    order: "По умолчанию",
     searchValue: "",
   },
   filteredTracks: [],
@@ -31,7 +31,7 @@ const playlistSlice = createSlice({
       action: PayloadAction<{ initialTracks: trackType[] }>
     ) => {
       state.initialTracks = action.payload.initialTracks;
-      // state.filteredTracks = action.payload.initialTracks;
+      state.filteredTracks = action.payload.initialTracks;
     },
     setCurrentTrack: (
       state,
@@ -86,17 +86,18 @@ const playlistSlice = createSlice({
       action: PayloadAction<{
         author?: string[];
         genre?: string[];
-        // yaer?: string[];
+        order?: string;
         searchValue?: string;
       }>
     ) => {
       state.filterOption = {
         author: action.payload.author || state.filterOption.author,
         genre: action.payload.genre || state.filterOption.genre,
+        order: action.payload.order || state.filterOption.order,
         searchValue:
           action.payload.searchValue || state.filterOption.searchValue,
       };
-      state.filteredTracks = state.initialTracks.filter((track) => {
+        const filteredArr = state.initialTracks.filter((track) => {
         const hasAuthors = state.filterOption.author.length !== 0;
         const isAuthors = hasAuthors
           ? state.filterOption.author.includes(track.author)
@@ -105,11 +106,34 @@ const playlistSlice = createSlice({
         const isGenres = hasGenres
           ? state.filterOption.genre.includes(track.genre)
           : true;
-        const hasSearchValue = track.name
+        const hasSearchValue = track.author
           .toLowerCase()
           .includes(state.filterOption.searchValue.toLowerCase());
-        return isAuthors || (isGenres && hasSearchValue);
+        return (isAuthors || isGenres) && hasSearchValue;
       });
+
+      switch (state.filterOption.order) {
+        case "Сначала новые":
+          filteredArr.sort(
+            (a, b) =>
+              new Date(b.release_date).getTime() -
+              new Date(a.release_date).getTime()
+          );
+          break;
+        case "Сначала старые":
+          filteredArr.sort(
+            (a, b) =>
+              new Date(a.release_date).getTime() -
+              new Date(b.release_date).getTime()
+          );
+
+          break;
+
+        default:
+          filteredArr;
+          break;
+      }
+      state.filteredTracks = filteredArr;
     },
   },
 });

@@ -14,6 +14,7 @@ export type FilterItemType = {
   handleFilterClick: (newFilter: string) => void;
   isOpened: boolean;
   tracksData: trackType[];
+  list: string[];
   
 };
 
@@ -39,7 +40,7 @@ export type PlaylistStateType = {
   isPlaying: boolean;
   filterOption: {
     author: string[];
-    // yaer: string[];
+    order: string;
     genre: string[];
     searchValue: string;
   };

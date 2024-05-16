@@ -93,7 +93,7 @@ export default function Player() {
       setCurrentTime(Number(event.target.value));
       audioRef.current.currentTime = Number(event.target.value);
     }
-  },[]);
+  },[volume]);
   return (
     <>
       {currentTrack && (
