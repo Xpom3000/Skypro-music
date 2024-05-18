@@ -115,10 +115,8 @@ const playlistSlice = createSlice({
             .includes(state.filterOption.searchValue.toLowerCase());
         return isAuthors && isGenres && hasSearchValue;
       });
-      console.log(filteredArr);
       switch (state.filterOption.order) {
         case "Сначалa новые":
-          // console.log(state.filterOption.order);
           filteredArr.sort(
             (a, b) =>
               new Date(b.release_date).getTime() -
@@ -126,21 +124,16 @@ const playlistSlice = createSlice({
           );
           break;
         case "Сначалa старые":
-          // console.log(state.filterOption.order);
           filteredArr.sort(
             (a, b) =>
               new Date(a.release_date).getTime() -
               new Date(b.release_date).getTime()
           );
-
           break;
-
         default:
-          console.log(state.filterOption.order);
-          // filteredArr;
+          filteredArr;
           break;
       }
-      // console.log(filteredArr)
       state.filteredTracks = filteredArr;
     },
   },
