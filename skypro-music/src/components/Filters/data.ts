@@ -18,4 +18,4 @@ export const filters: Filterstype[] = [
     },
 ];
   
-export const order = [ "По умолчанию", "Сначало новые", "Сначало старые"]
+export const order = [ "По умолчанию", "Сначалa новые", "Сначалa старые"]

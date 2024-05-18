@@ -42,12 +42,13 @@ export default function FilterItem({
         genre: genreList.includes(item)
           ? genreList.filter((el) => el !== item)
           : [...genreList, item],
+        order:item
       })
     );
 
   };
   useEffect(() => {
-    SetFilterNumber(authorsList.length || genreList.length);
+    SetFilterNumber(authorsList.length || genreList.length)
   }, [authorsList.length, genreList.length]);
 
   getFilterList();

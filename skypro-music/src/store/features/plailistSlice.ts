@@ -97,7 +97,7 @@ const playlistSlice = createSlice({
         searchValue:
           action.payload.searchValue || state.filterOption.searchValue,
       };
-        const filteredArr = state.initialTracks.filter((track) => {
+      const filteredArr = state.initialTracks.filter((track) => {
         const hasAuthors = state.filterOption.author.length !== 0;
         const isAuthors = hasAuthors
           ? state.filterOption.author.includes(track.author)
@@ -106,21 +106,27 @@ const playlistSlice = createSlice({
         const isGenres = hasGenres
           ? state.filterOption.genre.includes(track.genre)
           : true;
-        const hasSearchValue = track.author
-          .toLowerCase()
-          .includes(state.filterOption.searchValue.toLowerCase());
-        return (isAuthors || isGenres) && hasSearchValue;
+        const hasSearchValue =
+          track.author
+            .toLowerCase()
+            .includes(state.filterOption.searchValue.toLowerCase()) ||
+          track.name
+            .toLowerCase()
+            .includes(state.filterOption.searchValue.toLowerCase());
+        return isAuthors && isGenres && hasSearchValue;
       });
-
+      console.log(filteredArr);
       switch (state.filterOption.order) {
-        case "Сначала новые":
+        case "Сначалa новые":
+          // console.log(state.filterOption.order);
           filteredArr.sort(
             (a, b) =>
               new Date(b.release_date).getTime() -
               new Date(a.release_date).getTime()
           );
           break;
-        case "Сначала старые":
+        case "Сначалa старые":
+          // console.log(state.filterOption.order);
           filteredArr.sort(
             (a, b) =>
               new Date(a.release_date).getTime() -
@@ -130,9 +136,11 @@ const playlistSlice = createSlice({
           break;
 
         default:
-          filteredArr;
+          console.log(state.filterOption.order);
+          // filteredArr;
           break;
       }
+      // console.log(filteredArr)
       state.filteredTracks = filteredArr;
     },
   },

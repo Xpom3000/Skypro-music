@@ -26,7 +26,7 @@ export default function Filters({ tracksData }: { tracksData: trackType[] }) {
         tracksData={tracksData}
       />
       <FilterItem
-         list={filterList(filters.title)}
+        //  list={filterList(filters.title)}
         isOpened={activeFilter === filters[1].title}
         handleFilterClick={handleFilterClick}
         title={filters[1].title}
