@@ -13,9 +13,6 @@ type TrackType = {
 };
 
 export default function Track({ track, tracksData }: TrackType) {
-  // const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
-  // const isPlaying = useAppSelector((state) => state.playlist.isPlaying);
-
   const {currentTrack, isPlaying}=useAppSelector((state) => state.playlist);
   const { name, author, album, duration_in_seconds, id } = track;
   const isCurrentTrack = currentTrack ? currentTrack.id === id : false;

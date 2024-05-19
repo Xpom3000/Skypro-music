@@ -11,17 +11,10 @@ export default function FilterItem({
   title,
   value,
   isOpened,
+  optionList,
 }: FilterItemType) {
   const [filterNumber, SetFilterNumber] = useState<number>(0);
   const playlist = useAppSelector((state) => state.playlist.initialTracks);
-  const authorsList = useAppSelector(
-    (state) => state.playlist.filterOption.author
-  );
-  const genreList = useAppSelector(
-    (state) => state.playlist.filterOption.genre
-  );
-  // const orderList = useAppSelector((state) => state.playlist.filterOption.yaer);
-
   const dispatch = useAppDispatch();
   const getFilterList = () => {
     if (value !== "order") {
@@ -34,23 +27,21 @@ export default function FilterItem({
   };
 
   const togglerFilter = (item: string) => {
-    dispatch(
-      setFilters({
-        author: authorsList.includes(item)
-          ? authorsList.filter((el) => el !== item)
-          : [...authorsList, item],
-        genre: genreList.includes(item)
-          ? genreList.filter((el) => el !== item)
-          : [...genreList, item],
-        order:item
-      })
-    );
-
+    if (value !== "order" && optionList && optionList instanceof Array) {
+      dispatch(
+        setFilters({
+          [value]: optionList.includes(item)
+            ? optionList.filter((el) => el !== item)
+            : [...optionList, item],
+        })
+      );
+    } else {
+      dispatch(setFilters({ order: item }));
+    }
   };
   useEffect(() => {
-    SetFilterNumber(authorsList.length || genreList.length)
-  }, [authorsList.length, genreList.length]);
-
+    if (optionList) SetFilterNumber(optionList.length);
+  }, [optionList]);
   getFilterList();
   return (
     <>
@@ -65,9 +56,9 @@ export default function FilterItem({
             >
               {title}
             </div>
-            {filterNumber > 0 ? (
+            {filterNumber > 0 && (
               <div className={styles.filterNumber}>{filterNumber}</div>
-            ) : null}
+            )}
           </div>
           <div className={styles.navMenu}>
             <ul className={styles.menuList}>
@@ -79,7 +70,9 @@ export default function FilterItem({
                   }}
                   className={classNames(styles.menuItem, {
                     [styles.activeMenuItem]:
-                      authorsList.includes(item) || genreList.includes(item),
+                      value === "order"
+                        ? item === optionList
+                        : optionList.includes(item),
                   })}
                 >
                   {item}

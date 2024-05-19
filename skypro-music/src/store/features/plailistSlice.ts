@@ -2,7 +2,6 @@ import { PlaylistStateType, trackType } from "@/type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: PlaylistStateType = {
-  // defaultPlaylist: [],
   currentTrack: null,
   playlist: [],
   shuffledPlaylist: [],
@@ -22,10 +21,6 @@ const playlistSlice = createSlice({
   name: "playlist",
   initialState,
   reducers: {
-    // setDefaultPlaylist: (state, action: PayloadAction<trackType[]>) => {
-    //   state.defaultPlaylist = action.payload;
-    //   state.filtedTracks = action.payload;
-    // },
     setInitialTracks: (
       state,
       action: PayloadAction<{ initialTracks: trackType[] }>
@@ -45,7 +40,6 @@ const playlistSlice = createSlice({
     },
 
     setNextTrack: (state) => {
-      // прописать dispatch на кнопке следующий трек
       const playlist = state.isShuffle
         ? state.shuffledPlaylist
         : state.playlist;
@@ -59,7 +53,6 @@ const playlistSlice = createSlice({
     },
 
     setPreviousTrack: (state) => {
-      // прописать dispatch на кнопке предыдущий трек
       const playlist = state.isShuffle
         ? state.shuffledPlaylist
         : state.playlist;
@@ -73,7 +66,6 @@ const playlistSlice = createSlice({
     },
 
     setIsShuffle: (state, action: PayloadAction<boolean>) => {
-      // прописать  на кнопке перемешивание треков
       state.isShuffle = action.payload;
     },
 
@@ -95,7 +87,9 @@ const playlistSlice = createSlice({
         genre: action.payload.genre || state.filterOption.genre,
         order: action.payload.order || state.filterOption.order,
         searchValue:
-          action.payload.searchValue || state.filterOption.searchValue,
+          typeof action.payload.searchValue === "string"
+            ? action.payload.searchValue
+            : state.filterOption.searchValue,
       };
       const filteredArr = state.initialTracks.filter((track) => {
         const hasAuthors = state.filterOption.author.length !== 0;

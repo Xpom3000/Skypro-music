@@ -9,12 +9,12 @@ export const filters: Filterstype[] = [
       value: "author"
     },
     {
-      title: "Год выпуска",
-      value: "order",
-    },
-    {
       title: "Жанр",
       value: "genre"
+    },
+    {
+      title: "Год выпуска",
+      value: "order",
     },
 ];
   
