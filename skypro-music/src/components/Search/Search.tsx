@@ -19,7 +19,6 @@ export default function Search() {
       <input
         className={styles.searchText}
         type="search"
-        onsearch="myFunction()"
         placeholder="Поиск"
         name="search"
         value={searchValue}
