@@ -40,7 +40,7 @@ export default function FilterItem({
     }
   };
   useEffect(() => {
-    if (optionList) SetFilterNumber(optionList.length);
+    if if (value !== "order" && optionList) SetFilterNumber(optionList.length);
   }, [optionList]);
   getFilterList();
   return (
