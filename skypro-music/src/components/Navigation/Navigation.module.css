@@ -1,7 +1,5 @@
 .main {
   -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,7 +10,7 @@
   justify-content: space-between;
 }
 .mainNav {
-  width: 244px;
+  width: 294px;
   background-color: #181818;
   padding: 20px 0 20px 36px;
 }

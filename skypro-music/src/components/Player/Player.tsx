@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import styles from "./Player.module.css";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
@@ -85,7 +85,7 @@ export default function Player() {
       setCurrentTime(audioRef.current!.currentTime)
     );
   });
-  const handleSeek = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
       audioRef.current.play();
@@ -93,7 +93,7 @@ export default function Player() {
       setCurrentTime(Number(event.target.value));
       audioRef.current.currentTime = Number(event.target.value);
     }
-  };
+  },[volume]);
   return (
     <>
       {currentTrack && (

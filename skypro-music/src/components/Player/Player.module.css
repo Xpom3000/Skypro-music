@@ -177,7 +177,7 @@
 .trackPlayImage {
   width: 51px;
   height: 51px;
-  background-color: #313131;
+  background-color: rgb(64 34 97 / 49%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
