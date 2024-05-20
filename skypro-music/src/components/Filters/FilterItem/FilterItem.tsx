@@ -17,7 +17,7 @@ export default function FilterItem({
   const playlist = useAppSelector((state) => state.playlist.initialTracks);
   const dispatch = useAppDispatch();
   const getFilterList = () => {
-    if (value !== "order") {
+    if (value !== "order" ) {
       const filtrsSet = new Set(
         playlist?.map((track: trackType) => track[value]) || []
       );
@@ -40,8 +40,8 @@ export default function FilterItem({
     }
   };
   useEffect(() => {
-    if (optionList) SetFilterNumber(optionList.length);
-  }, [optionList]);
+    if (value !== "order" && optionList) SetFilterNumber(optionList.length);
+  }, [optionList, value]);
   getFilterList();
   return (
     <>
