@@ -7,7 +7,7 @@ import { filters } from "./data";
 import { trackType } from "@/type";
 import { useAppSelector } from "@/store/hooks";
 
-export default function Filters({ tracksData }: { tracksData: trackType[] }) {
+export default function Filters() {
   const { author, genre, order } = useAppSelector(
     (store) => store.playlist.filterOption
   );
