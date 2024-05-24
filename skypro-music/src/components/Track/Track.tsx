@@ -7,7 +7,7 @@ import { trackType } from "@/type";
 import { setCurrentTrack, setIsPlaying} from "@/store/features/plailistSlice";
 import classNames from "classnames";
 
-type TrackType = {
+export type TrackType = {
   track: trackType;
   tracksData: trackType[];
 };

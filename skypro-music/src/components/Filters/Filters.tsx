@@ -23,7 +23,7 @@ export default function Filters({ tracksData }: { tracksData: trackType[] }) {
         handleFilterClick={handleFilterClick}
         title={filters[0].title}
         value={filters[0].value}
-        tracksData={tracksData}
+        // tracksData={tracksData}
         optionList={author}
       />
       <FilterItem
@@ -31,7 +31,7 @@ export default function Filters({ tracksData }: { tracksData: trackType[] }) {
         handleFilterClick={handleFilterClick}
         title={filters[1].title}
         value={filters[1].value}
-        tracksData={tracksData}
+        // tracksData={tracksData}
         optionList={genre}
       />
       <FilterItem
@@ -39,7 +39,7 @@ export default function Filters({ tracksData }: { tracksData: trackType[] }) {
         handleFilterClick={handleFilterClick}
         title={filters[2].title}
         value={filters[2].value}
-        tracksData={tracksData}
+        // tracksData={tracksData}
         optionList={order}
       />
     </div>

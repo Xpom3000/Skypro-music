@@ -1,3 +1,5 @@
+"use client"
+
 import { ChangeEvent, useState } from "react";
 import styles from "../Search/Search.module.css";
 import { useAppDispatch } from "@/store/hooks";
