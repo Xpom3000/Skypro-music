@@ -5,7 +5,7 @@ import Player from "@/components/Player/Player";
 // import Search from "@/components/Search/Search";
 // import Filters from "@/components/Filters/Filters";
 // import Playlist from "@/components/Playlist/Playlist";
-import CenterBlock from "@/components/CenterBlock/CenterBlock";
+// import CenterBlock from "@/components/CenterBlock/CenterBlock";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <div className={styles.container}>
         <main className={styles.main}>
           <Navigation />
-          <CenterBlock/>
+          {/* <CenterBlock children={children} /> */}
           <Sidebar />
         </main>
         <Player />

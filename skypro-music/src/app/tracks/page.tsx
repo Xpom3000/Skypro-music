@@ -3,7 +3,7 @@
 import Playlist from "@/components/Playlist/Playlist";
 import { setInitialTracks } from "@/store/features/plailistSlice";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { getTracks } from "@/store/tracks";
+import { getTracks } from "@/api/tracks";
 import { trackType } from "@/type";
 import { useEffect, useState } from "react";
 
@@ -21,7 +21,5 @@ export default function MainTracksPage() {
     });
   }, [dispatch]);
 
-  return <Playlist
-    // tracks={filteredTracks} playlist={tracks}
-  />;
+  return <Playlist tracks={filteredTracks} playlist={tracks} />;
 }

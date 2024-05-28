@@ -5,9 +5,9 @@ import Navigation from "@/components/Navigation/Navigation";
 import Player from "@/components/Player/Player";
 import Sidebar from "@/components/Sidebar/Sidebar";
 
-export default function TrackLayout({
+export default function TracksLayout({
     children
-  }: Readonly<{
+  }: Readonly<{                                                                              
     children: React.ReactNode;
   }>) {
   return (
@@ -15,7 +15,7 @@ export default function TrackLayout({
       <div className={styles.container}>
         <main className={styles.main}>
           <Navigation />
-          <CenterBlock  />
+          <CenterBlock children={children} />
           <Sidebar />
         </main>
         <Player />
