@@ -10,7 +10,6 @@ export default async function CategoryPage({ params }: CategoryType) {
   return (
     <>
       <Playlist tracks={tracksData} playlist={tracksData}/>
-      {/* <div>Страница категорий {tracksData[0].author}</div> */}
     </>
   );
 }

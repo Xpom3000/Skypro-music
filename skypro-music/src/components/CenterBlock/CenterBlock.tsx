@@ -3,7 +3,6 @@
 import styles from "./CenterBlock.module.css";
 import Filters from "../Filters/Filters";
 import Search from "../Search/Search";
-import Playlist from "../Playlist/Playlist";
 
 export default function CenterBlock({
   children
@@ -15,7 +14,6 @@ export default function CenterBlock({
       <Search />
       <h2 className={styles.centerblockH2}>Треки</h2>
       <Filters />
-      {/* <Playlist /> */}
       {children}
     </div>
   );
