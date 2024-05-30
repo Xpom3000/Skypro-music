@@ -1,15 +1,16 @@
 import { getPlaylistTracks } from "@/api/tracks";
+import Playlist from "@/components/Playlist/Playlist";
 
 type CategoryType = {
   params: { id: string };
 };
 
 export default async function CategoryPage({ params }: CategoryType) {
-  getPlaylistTracks(params.id);
-  
+  const tracksData = await getPlaylistTracks(params.id);
   return (
     <>
-      <div>Страница категорий {params.id}</div>
+      <Playlist tracks={tracksData} playlist={tracksData}/>
+      {/* <div>Страница категорий {tracksData[0].author}</div> */}
     </>
   );
 }

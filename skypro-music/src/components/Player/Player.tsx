@@ -4,11 +4,11 @@ import classNames from "classnames";
 import styles from "./Player.module.css";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
-import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
+import { durationFormat } from "@/lib/utilits";
 
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
@@ -132,7 +132,7 @@ export default function Player() {
                   <div className={styles.trackPlayContain}>
                     <div className={styles.trackPlayImage}>
                       <svg className={styles.trackPlaySvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-note" />
                       </svg>
                     </div>
                     <div className={styles.trackPlayAuthor}>
@@ -154,7 +154,7 @@ export default function Player() {
                       )}
                     >
                       <svg className={styles.trackPlayLikeSvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                       </svg>
                     </div>
                     <div
@@ -164,7 +164,7 @@ export default function Player() {
                       )}
                     >
                       <svg className={styles.trackPlayDislikeSvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
                       </svg>
                     </div>
                   </div>

@@ -10,7 +10,7 @@ export default function Sidebar() {
         <Link href="/signin">
           <div className={styles.sidebarIcon}>
             <svg>
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </div>
         </Link>
