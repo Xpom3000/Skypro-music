@@ -44,6 +44,7 @@ export type PlaylistStateType = {
   };
   filteredTracks: trackType[];
   initialTracks: trackType[];
+  playlistNumber: number | null,
 };
 
 export type ErrorType = {

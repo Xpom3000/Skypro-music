@@ -6,6 +6,9 @@ import { trackType } from "@/type";
 import { setCurrentTrack, setIsPlaying} from "@/store/features/plailistSlice";
 import classNames from "classnames";
 import { durationFormat } from "@/lib/utilits";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 export type TrackType = {
   track: trackType;
@@ -49,7 +52,7 @@ export default function Track({ track, tracksData }: TrackType) {
           <span className={styles.trackAlbumLink}>{album}</span>
         </div>
         <div className={styles.trackTime}>
-          <svg className={styles.trackTimeSvg}>
+          <svg className={classNames(styles.trackTimeSvg, montserrat.className)}>
             <use xlinkHref="/img/icon/sprite.svg#icon-like" />
           </svg>
           <span className={styles.trackTimeText}>

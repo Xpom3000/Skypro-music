@@ -9,6 +9,7 @@ import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
 import { durationFormat } from "@/lib/utilits";
+// import { Montserrat } from "next/font/google";
 
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
@@ -82,13 +83,13 @@ export default function Player() {
   });
   const handleSeek = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
-      audioRef.current.volume = volume;
-      audioRef.current.play();
-      setIsPlaying(true);
+      // audioRef.current.volume = volume;
+      // audioRef.current.play();
+      // setIsPlaying(true);
       setCurrentTime(Number(event.target.value));
       audioRef.current.currentTime = Number(event.target.value);
     }
-  },[volume]);
+  },[]);
   return (
     <>
       {currentTrack && (

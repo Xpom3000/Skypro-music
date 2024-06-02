@@ -7,12 +7,13 @@ export async function getTracks() {
     if (!res.ok) {
       throw new Error('Ошибка при получении данных');
     }
+
     return res.json();
   }
   
   export async function getPlaylistTracks(id:string) {
     const res = await fetch(apiUrlPlaylist + id);
-    
+  
     if (!res.ok) {
       throw new Error('Ошибка при получении данных');
     }
