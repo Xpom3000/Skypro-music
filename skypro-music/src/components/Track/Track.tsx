@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { durationFormat } from "@/lib/utilits";
 import { Montserrat } from "next/font/google";
 
-const montserrat = Montserrat({ subsets: ["cyrillic"] });
+export const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 export type TrackType = {
   track: trackType;
@@ -52,10 +52,10 @@ export default function Track({ track, tracksData }: TrackType) {
           <span className={styles.trackAlbumLink}>{album}</span>
         </div>
         <div className={styles.trackTime}>
-          <svg className={classNames(styles.trackTimeSvg, montserrat.className)}>
+          <svg className={styles.trackTimeSvg}>
             <use xlinkHref="/img/icon/sprite.svg#icon-like" />
           </svg>
-          <span className={styles.trackTimeText}>
+          <span className={classNames(styles.trackTimeText, montserrat.className)}>
             {durationFormat(duration_in_seconds)}
           </span>
         </div>

@@ -9,6 +9,7 @@ import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
 import { durationFormat } from "@/lib/utilits";
+import { montserrat } from "../Track/Track";
 // import { Montserrat } from "next/font/google";
 
 export default function Player() {
@@ -100,7 +101,7 @@ export default function Player() {
               src={currentTrack.track_file}
               onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
             ></audio>
-            <div className={styles.trackTimeBlock}>
+            <div className={classNames(styles.trackTimeBlock, montserrat.className)}>
               <div>{durationFormat(currentTime)}</div>
               <div> / </div>
               <div>{durationFormat(duration)}</div>
