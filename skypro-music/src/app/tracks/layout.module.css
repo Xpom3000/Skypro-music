@@ -94,9 +94,9 @@
       padding-right: calc(50% - 393px);
     }
   
-    .container {
+    /* .container {
       height: 268px;
-    }
+    } */
     /* 
     .main {
       grid: revert;
