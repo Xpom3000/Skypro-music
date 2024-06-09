@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    /* width: 1920px;
+    height: 1080px; 
+    /* background: rgb(24, 24, 24); */
+}
+
+.containerNf{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 431px;
+    height: 366px; */
+    margin: -53px;
+}
+
+.containerSvg {
+    width: auto;
+    height: auto;
+}
+
+.containerH1{
+    color: rgb(255, 255, 255);
+    font-family: StratosSkyeng;
+    font-size: 160px;
+    font-weight: 400;
+    line-height: 168px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.containerH3{
+    color: rgb(255, 255, 255);
+    font-family: StratosSkyeng;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.containerLink {
+    border-radius: 6px;
+
+    width: 278px;
+    height: 52px;
+    background: #5f8aba;;
+
+}
+.containerLink:hover{
+    border: 1px solid #fff;
+}
+.containerP{
+    color: rgb(78, 78, 78);
+    font-family: StratosSkyeng;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.3%;
+    text-align: center;
+    
+    width: 431px;
+    height: 48px;
+
+  }
+
+.containerLinkP {
+    color: rgb(255, 255, 255);
+    font-family: StratosSkyeng;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.3%;
+    text-align: center;
+    padding: 2px 46px 16px 44px;
+}

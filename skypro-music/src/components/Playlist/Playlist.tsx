@@ -1,26 +1,9 @@
 import classNames from "classnames";
 import styles from "./Playlist.module.css";
 import Track from "../Track/Track";
-import { getTracks } from "@/store/tracks";
 import { trackType } from "@/type";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { setInitialTracks } from "@/store/features/plailistSlice";
-import { useEffect, useState } from "react";
 
-export default function Playlist() {
-  const dispatch = useAppDispatch();
-  const [tracks, setTracks] = useState<trackType[]>([]);
-  const filteredTracks = useAppSelector((state) => state.playlist.filteredTracks);
-
-  useEffect(() => {
-    getTracks().then((tracksData) => {
-      setTracks(tracksData);
-      dispatch(setInitialTracks({ initialTracks: tracksData }));
-      
-    });
-    
-  }, [dispatch])
-
+export default function Playlist({tracks, playlist}:{tracks: trackType[], playlist: trackType[]}) {
   return (
     <div
       className={classNames(styles.centerblockContent, styles.playlistContent)}
@@ -42,8 +25,8 @@ export default function Playlist() {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
-        {filteredTracks.map((track) => (
-          <Track key={track.id} track={track} tracksData={tracks} />
+        {tracks.map((track) => (
+          <Track key={track.id} track={track} tracksData={playlist} />
         ))}
       </div>
     </div>

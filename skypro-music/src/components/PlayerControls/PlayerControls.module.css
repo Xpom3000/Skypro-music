@@ -56,7 +56,7 @@
 
 .playerBtnRepeat {
   margin-right: 24px;
-  stroke: #858181; 
+  stroke: #ababab; 
 }
 
 .btnIcon:hover svg {
@@ -66,8 +66,15 @@
 }
 
 .btnIcon:active svg {
-  fill: transparent;
+  /* fill: transparent; */
   stroke: #ffffff;
+  fill: #ffffff;
+  cursor: pointer;
+}
+
+.active {
+  stroke: #ffffff;
+  fill: #ffffff;
   cursor: pointer;
 }
 

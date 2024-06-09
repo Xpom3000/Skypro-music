@@ -1,13 +1,16 @@
 "use client";
 
-import { durationFormat } from "@/utils";
 import styles from "./Track.module.css";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { trackType } from "@/type";
 import { setCurrentTrack, setIsPlaying} from "@/store/features/plailistSlice";
 import classNames from "classnames";
+import { durationFormat } from "@/lib/utilits";
+import { Montserrat } from "next/font/google";
 
-type TrackType = {
+export const montserrat = Montserrat({ subsets: ["cyrillic"] });
+
+export type TrackType = {
   track: trackType;
   tracksData: trackType[];
 };
@@ -31,7 +34,7 @@ export default function Track({ track, tracksData }: TrackType) {
           <svg className={classNames(styles.trackTitleSvg, {
                 [styles.trackIconIsplaying]: isPlaying && isCurrentTrack,
               })}>
-              <use xlinkHref={`img/icon/sprite.svg#${
+              <use xlinkHref={`/img/icon/sprite.svg#${
                  isCurrentTrack ? "icon-isplaying" : "icon-note"
                 }`} />
             </svg>
@@ -50,9 +53,9 @@ export default function Track({ track, tracksData }: TrackType) {
         </div>
         <div className={styles.trackTime}>
           <svg className={styles.trackTimeSvg}>
-            <use xlinkHref="img/icon/sprite.svg#icon-like" />
+            <use xlinkHref="/img/icon/sprite.svg#icon-like" />
           </svg>
-          <span className={styles.trackTimeText}>
+          <span className={classNames(styles.trackTimeText, montserrat.className)}>
             {durationFormat(duration_in_seconds)}
           </span>
         </div>

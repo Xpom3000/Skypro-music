@@ -1,19 +1,25 @@
-// Обратите внимание, что компонент ошибки – клиентский
-'use client';
+"use client";
 
-import { ErrorType } from '@/type';
-import { useEffect } from 'react';
+import styles from "./error.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Error({ error, reset }: ErrorType) {
-  useEffect(() => {
-    // Логирование ошибки
-    console.error(error);
-  }, [error]);
 
+export default function Error() {
   return (
-    <div>
-      <h2>Что-то пошло не так!</h2>
-      <button onClick={reset}>Попробовать снова</button>
+    <div className={styles.container}>
+      <Image
+        className={styles.containerSvg}
+        src="/img/404.png"
+        width={1400}
+        height={710}
+        alt="Error 404"
+      />
+      <div className={styles.containerNf}>
+        <Link className={styles.containerLink} href="/">
+          <p className={styles.containerLinkP}>Вернуться на главную страницу</p>
+        </Link>
+      </div>
     </div>
   );
 }

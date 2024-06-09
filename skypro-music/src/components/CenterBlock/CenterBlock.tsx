@@ -1,17 +1,28 @@
 "use client";
 
 import styles from "./CenterBlock.module.css";
-import Filters from "../Filters/Filters";
+// import Filters from "../Filters/Filters";
 import Search from "../Search/Search";
-import Playlist from "../Playlist/Playlist";
+import { useAppDispatch } from "@/store/hooks";
+import { setPlaylistNumber } from "@/store/features/plailistSlice";
 
-export default function CenterBlock() {
+type centerBlockType = {
+  playlistID: string,
+  isFilter: boolean,
+};
+
+export default function CenterBlock({
+  children
+}: Readonly<{                                                                              
+  children: React.ReactNode;
+}>, { playlistID, isFilter }: centerBlockType) {
+  const dispatcher = useAppDispatch();
+  dispatcher(setPlaylistNumber(playlistID)); 
+
   return (
     <div className={styles.mainCenterblock}>
       <Search />
-      <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filters tracksData={[]} />
-      <Playlist />
+      {children}
     </div>
   );
 }

@@ -4,11 +4,13 @@ import classNames from "classnames";
 import styles from "./Player.module.css";
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
-import { durationFormat } from "@/utils";
 import Volume from "../Volume/Volume";
 import PlayerControls from "../PlayerControls/PlayerControls";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setIsPlaying, setNextTrack } from "@/store/features/plailistSlice";
+import { durationFormat } from "@/lib/utilits";
+import { montserrat } from "../Track/Track";
+// import { Montserrat } from "next/font/google";
 
 export default function Player() {
   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
@@ -46,11 +48,8 @@ export default function Player() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      // audioRef.current.play();
-      // setIsPlaying(true);
     }
     audioRef.current?.addEventListener("ended", () => {
-      // setIsPlaying(false);
       setCurrentTime(0);
     });
   }, [volume, duration]);
@@ -64,8 +63,6 @@ export default function Player() {
         audioRef.current.play();
         dispatch(setIsPlaying(true));
       }
-      // setIsPlaying(!isPlaying);
-      
     }
   };
 
@@ -87,13 +84,13 @@ export default function Player() {
   });
   const handleSeek = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
-      audioRef.current.volume = volume;
-      audioRef.current.play();
-      setIsPlaying(true);
+      // audioRef.current.volume = volume;
+      // audioRef.current.play();
+      // setIsPlaying(true);
       setCurrentTime(Number(event.target.value));
       audioRef.current.currentTime = Number(event.target.value);
     }
-  },[volume]);
+  },[]);
   return (
     <>
       {currentTrack && (
@@ -104,7 +101,7 @@ export default function Player() {
               src={currentTrack.track_file}
               onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
             ></audio>
-            <div className={styles.trackTimeBlock}>
+            <div className={classNames(styles.trackTimeBlock, montserrat.className)}>
               <div>{durationFormat(currentTime)}</div>
               <div> / </div>
               <div>{durationFormat(duration)}</div>
@@ -132,7 +129,7 @@ export default function Player() {
                   <div className={styles.trackPlayContain}>
                     <div className={styles.trackPlayImage}>
                       <svg className={styles.trackPlaySvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-note" />
                       </svg>
                     </div>
                     <div className={styles.trackPlayAuthor}>
@@ -154,7 +151,7 @@ export default function Player() {
                       )}
                     >
                       <svg className={styles.trackPlayLikeSvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                       </svg>
                     </div>
                     <div
@@ -164,7 +161,7 @@ export default function Player() {
                       )}
                     >
                       <svg className={styles.trackPlayDislikeSvg}>
-                        <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+                        <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
                       </svg>
                     </div>
                   </div>

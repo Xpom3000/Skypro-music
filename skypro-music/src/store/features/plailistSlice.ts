@@ -15,6 +15,7 @@ const initialState: PlaylistStateType = {
   },
   filteredTracks: [],
   initialTracks: [],
+  playlistNumber: null,
 };
 
 const playlistSlice = createSlice({
@@ -130,6 +131,9 @@ const playlistSlice = createSlice({
       }
       state.filteredTracks = filteredArr;
     },
+    setPlaylistNumber: (state, action) => {
+      state.playlistNumber = action.payload;
+  },
   },
 });
 
@@ -141,5 +145,6 @@ export const {
   setIsShuffle,
   setIsPlaying,
   setFilters,
+  setPlaylistNumber,
 } = playlistSlice.actions;
 export const playlistReducer = playlistSlice.reducer;
