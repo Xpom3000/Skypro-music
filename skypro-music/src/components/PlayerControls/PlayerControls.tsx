@@ -38,14 +38,12 @@ export default function PlayerControls({
     }
   };
 
-
-
   return (
     <div className={styles.playerControls}>
       <div onClick={HandlePreviousTrack}
         className={classNames(styles.playerBtnPrev, styles.btnIcon)}>
         <svg className={styles.playerBtnPrevSvg}>
-          <use xlinkHref="img/icon/sprite.svg#icon-prev" />
+          <use xlinkHref="/img/icon/sprite.svg#icon-prev" />
         </svg>
       </div>
       <div
@@ -54,7 +52,7 @@ export default function PlayerControls({
       >
         <svg className={styles.playerBtnPlaySvg}>
           <use
-            xlinkHref={`img/icon/sprite.svg#${
+            xlinkHref={`/img/icon/sprite.svg#${
               isPlaying ? "icon-pause" : "icon-play"
             }`}
           />
@@ -62,13 +60,13 @@ export default function PlayerControls({
       </div>
       <div onClick={HandleNextTrack} className={classNames(styles.playerBtnNext, styles.btnIcon)}>
         <svg className={styles.playerBtnNextSvg}>
-          <use xlinkHref="img/icon/sprite.svg#icon-next" />
+          <use xlinkHref="/img/icon/sprite.svg#icon-next" />
         </svg>
       </div>
-      <div onClick={toggleLoop} className={classNames(styles.playerBtnRepeat, styles.btnIcon)}>
+      <div onClick={toggleLoop} className={classNames(styles.playerBtnRepeat, styles.btnIcon, isLooping ? styles.active : null)}>
         <svg className={styles.playerBtnRepeatSvg}>
           <use
-            xlinkHref={`img/icon/sprite.svg#${
+            xlinkHref={`/img/icon/sprite.svg#${
               isLooping ? "icon-repeat"  : "icon-repeat-toggled"
             }`}
           />
@@ -76,11 +74,11 @@ export default function PlayerControls({
       </div>
       <div onClick={HandleShuffle} className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
         <svg className={styles.playerBtnShuffleSvg}>
-          <use xlinkHref={`img/icon/sprite.svg#${
+          <use xlinkHref={`/img/icon/sprite.svg#${
               isShuffle ? "icon-shuffle-toggled" : "icon-shuffle"
             }`} />
         </svg>
-      </div>
+      </div> 
     </div>
   );
 }

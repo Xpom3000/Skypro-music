@@ -10,7 +10,7 @@ export default function Sidebar() {
         <Link href="/signin">
           <div className={styles.sidebarIcon}>
             <svg>
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </div>
         </Link>
@@ -18,7 +18,7 @@ export default function Sidebar() {
       <div className={styles.sidebarBlock}>
         <div className={styles.sidebarList}>
           <div className={styles.sidebarItem}>
-            <Link className={styles.sidebarLink} href="#">
+            <Link className={styles.sidebarLink} href="/tracks/category/1">
               <Image
                 className={styles.sidebarImg}
                 width={100}
@@ -29,7 +29,7 @@ export default function Sidebar() {
             </Link>
           </div>
           <div className={styles.sidebarItem}>
-            <Link className={styles.sidebarLink} href="#">
+            <Link className={styles.sidebarLink} href="/tracks/category/2">
               <Image
                 className={styles.sidebarImg}
                 width={100}
@@ -40,7 +40,7 @@ export default function Sidebar() {
             </Link>
           </div>
           <div className={styles.sidebarItem}>
-            <Link className={styles.sidebarLink} href="#">
+            <Link className={styles.sidebarLink} href="/tracks/category/3">
               <Image
                 className={styles.sidebarImg}
                 width={100}

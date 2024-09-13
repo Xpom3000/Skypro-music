@@ -4,7 +4,7 @@ import "./globals.css";
 import ReduxProvider from "@/store/ReduxProvider";
 
 
-const montserrat = Montserrat({ subsets: ["cyrillic"] });
+export const montserrat = Montserrat({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Лучший сервис в мире",
