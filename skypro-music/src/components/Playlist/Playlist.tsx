@@ -11,10 +11,12 @@ export default function Playlist() {
   const dispatch = useAppDispatch();
   const [tracks, setTracks] = useState<trackType[]>([]);
   const filteredTracks = useAppSelector((state) => state.playlist.filteredTracks);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getTracks().then((tracksData) => {
       setTracks(tracksData);
+       setLoading(false);
       dispatch(setInitialTracks({ initialTracks: tracksData }));
       
     });
@@ -42,6 +44,7 @@ export default function Playlist() {
         </div>
       </div>
       <div className={classNames(styles.contentPlaylist, styles.playlist)}>
+        {loading ? "Идёт загрузка плейлиста" :  filteredTracks.length === 0? "Треки не найдены" : "" }
         {filteredTracks.map((track) => (
           <Track key={track.id} track={track} tracksData={tracks} />
         ))}

@@ -21,6 +21,7 @@ export default function Track({ track, tracksData }: TrackType) {
 
   const handleTrackClick = () => {
     if (isPlaying) {
+      dispatch(setCurrentTrack({ track, tracksData }));
       dispatch(setIsPlaying(false));
     } else {
       dispatch(setCurrentTrack({ track, tracksData}));
