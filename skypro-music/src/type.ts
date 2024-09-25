@@ -13,7 +13,7 @@ export type FilterItemType = {
   value: "author" | "genre" | "order";
   handleFilterClick: (newFilter: string) => void;
   isOpened: boolean;
-  tracksData: trackType[];
+  // tracksData: trackType[];
   optionList: string[] | string;  
 };
 

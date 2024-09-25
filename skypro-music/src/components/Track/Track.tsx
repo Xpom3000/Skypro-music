@@ -4,7 +4,7 @@ import { durationFormat } from "@/utils";
 import styles from "./Track.module.css";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { trackType } from "@/type";
-import { setCurrentTrack, setIsPlaying} from "@/store/features/plailistSlice";
+import { setCurrentTrack, setIsPlaying } from "@/store/features/plailistSlice";
 import classNames from "classnames";
 
 type TrackType = {
@@ -13,27 +13,37 @@ type TrackType = {
 };
 
 export default function Track({ track, tracksData }: TrackType) {
-  const {currentTrack, isPlaying}=useAppSelector((state) => state.playlist);
+   const currentTrack = useAppSelector((state) => state.playlist.currentTrack);
+  const isPlaying = useAppSelector((state) => state.playlist.isPlaying);
   const { name, author, album, duration_in_seconds, id } = track;
   const isCurrentTrack = currentTrack ? currentTrack.id === id : false;
   const dispatch = useAppDispatch();
 
-  const handleTracKlClick = () => {
-    dispatch(setCurrentTrack({ track, tracksData }));
-    dispatch(setIsPlaying(true));
+  const handleTrackClick = () => {
+    if (isPlaying) {
+      dispatch(setIsPlaying(false));
+    } else {
+      dispatch(setCurrentTrack({ track, tracksData}));
+      dispatch(setIsPlaying(true));
+    }
+    
   };
 
   return (
-    <div onClick={handleTracKlClick} className={styles.playlistItem}>
+    <div onClick={handleTrackClick} className={styles.playlistItem}>
       <div className={styles.playlistTrack}>
         <div className={styles.trackTitle}>
           <div className={styles.trackTitleImage}>
-          <svg className={classNames(styles.trackTitleSvg, {
+          <svg
+              className={classNames(styles.trackTitleSvg, {
                 [styles.trackIconIsplaying]: isPlaying && isCurrentTrack,
-              })}>
-              <use xlinkHref={`img/icon/sprite.svg#${
-                 isCurrentTrack ? "icon-isplaying" : "icon-note"
-                }`} />
+              })}
+            >
+              <use
+                xlinkHref={`/img/icon/sprite.svg#${
+                  isCurrentTrack ? "icon-isplaying" : "icon-note"
+                }`}
+              />
             </svg>
           </div>
           <div className={styles.trackTitleText}>
