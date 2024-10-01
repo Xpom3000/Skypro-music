@@ -19,7 +19,7 @@ export default function MainTracksPage() {
   const { user } = useUser();
 
   useEffect(() => {
-    getTracks({ id: user?.id ?? 0 }).then((tracksData) => {
+    getTracks().then((tracksData) => {
       setTracks(tracksData);
       dispatch(setInitialTracks({ initialTracks: tracksData }));
     });
@@ -29,7 +29,7 @@ export default function MainTracksPage() {
     <>
       <h2 className={styles.centerblockH2}>Треки</h2>
       <Filters  />
-      <Playlist tracks={filteredTracks} playlist={tracks} />
+      <Playlist/>
     </>
   );
 }

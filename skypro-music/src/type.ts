@@ -67,3 +67,20 @@ export type ProgressBarType = {
   step: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
+
+
+export type TokenType = {
+  access: string;
+  refresh: string;
+};
+
+export type UserContextType = {
+  user: trackType | null;
+
+  token?: TokenType;
+  login: (
+    newUser: number,
+    loginData: { email: string; password: string }
+  ) => void;
+  logout: () => void;
+};

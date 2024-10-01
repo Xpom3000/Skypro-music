@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Компонент ProgressBar Успешный рендер ProgressBar 1`] = `
+<input
+  className="styledProgressInput"
+  max={135.444898}
+  min="0"
+  onChange={[MockFunction]}
+  step={0.01}
+  type="range"
+  value={2.377663}
+/>
+`;

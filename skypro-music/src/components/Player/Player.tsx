@@ -47,7 +47,6 @@ export default function Player() {
     };
     audio?.addEventListener("ended", handdleEnded);
     return () => audio?.removeEventListener("ended", handdleEnded);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, audioRef.current]);
 
   useEffect(() => {
@@ -135,7 +134,7 @@ export default function Player() {
                 <PlayerControls
                   togglePlay={togglePlay}
                   isPlaying={isPlaying}
-                  toggleLoop={toggleLoop}
+                  toggleLoop={toggleLoop} 
                   isLooping={isLooping}
                 />
                 <div
