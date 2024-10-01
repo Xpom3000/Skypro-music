@@ -30,8 +30,15 @@ export default function Player() {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current?.play();
+    } else {
+      audioRef.current?.pause();
     }
   }, [isPlaying, currentTrack]);
+
+  useEffect(() => {
+    audioRef.current?.play();
+    dispatch (setIsPlaying(true));
+  }, [currentTrack, dispatch]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -57,17 +64,25 @@ export default function Player() {
 
   const togglePlay = () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        dispatch(setIsPlaying(false));
-      } else {
-        audioRef.current.play();
-        dispatch(setIsPlaying(true));
+      {
+        dispatch(setIsPlaying(!isPlaying));
       }
-      // setIsPlaying(!isPlaying);
-      
     }
   };
+
+  // const togglePlay = () => {
+  //   if (audioRef.current) {
+  //     if (isPlaying) {
+  //       audioRef.current.pause();
+  //       dispatch(setIsPlaying(false));
+  //     } else {
+  //       audioRef.current.play();
+  //       dispatch(setIsPlaying(true));
+  //     }
+  //     // setIsPlaying(!isPlaying);
+      
+  //   }
+  // };
 
   const toggleLoop = () => {
     if (audioRef.current) {

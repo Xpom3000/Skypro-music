@@ -1,13 +1,14 @@
-// Counter.tsx Клиентский компонент
 "use client";
 
 import Image from "next/image";
 import styles from "./Navigation.module.css";
 import Link from "next/link";
 import { useState } from "react";
+import { useUser } from "@/hooks/useUser";
 
 export default function Navigation() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const { user } = useUser();
   return (
     <main className={styles.main}>
       <nav className={styles.mainNav}>
@@ -38,11 +39,13 @@ export default function Navigation() {
                   Мой плейлист
                 </Link>
               </li>
-              <li className={styles.menuItem}>
+              {!user?.name && (
+                <li className={styles.menuItem}>
                 <Link href="/signin" className={styles.menuLink}>
                   Выйти
                 </Link>
               </li>
+              )}
             </ul>
           </div>
         )}
